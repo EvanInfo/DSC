@@ -34,7 +34,8 @@ include ("../include/entete.inc.php");
         </div>
         <div class="form-group col-md-6">
           <label for="date">Date de naissance</label>
-          <input type="date" class="form-control is-invalid" name="naissance" id="naissance" required>
+          <input type="date" class="form-control" name="naissance" id="naissance" oninput="validateDate()" required>
+
           <div class="invalid-feedback">
             La date doit être correcte.
           </div>
@@ -43,14 +44,14 @@ include ("../include/entete.inc.php");
       <div class="form-group row">
         <div class="form-group col-md-6">
           <label for="nom">Nom</label>
-          <input type="text" class="form-control is-invalid" name="nom" id="nom" required>
+          <input type="text" class="form-control" name="nom" id="nom" oninput="validateName('nom')" required>
           <div class="invalid-feedback">
            Le nom du pompier est obligatoire.
           </div>
         </div>
         <div class="form-group col-md-6">
           <label for="prenom">Prénom</label>
-          <input type="text" class="form-control is-invalid" name="prenom" id="prenom" required>
+          <input type="text" class="form-control" name="prenom" id="prenom" oninput="validateName('prenom')" required>
           <div class="invalid-feedback">
             Le prénom du pompier est obligatoire.
           </div>

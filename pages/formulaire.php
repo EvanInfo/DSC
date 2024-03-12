@@ -59,37 +59,44 @@ include ("../include/entete.inc.php");
       </div>
 
 
-      <div class="form-group row">
-        <!-- Colonne des boutons radio -->
-        <div class="col-md-6">
-        <label for="inputState">Sexe :</label>
-            <div class="form-check form-check-inline" required>
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sexef" value="féminin">
-                <label class="form-check-label" for="sexef">Féminin</label>
-            </div>
-            <div class="form-check form-check-inline" required>
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sexem" value="masculin">
-                <label class="form-check-label" for="sexem">Masculin</label>
-            </div>
-        </div>
-        <!-- Colonne des sélecteurs de grade -->
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="inputState">Grade</label>
-                <select id="inputState" class="form-control is-invalid" required>
-                    <option value="" disabled selected>Choisissez un grade</option>
-                    <?php
-                    $listeGrade = $gradeManager->getGrade();
+    <div class="form-group">
+      <div class="row">
+          <!-- Colonne des boutons radio Sexe -->
+          <div class="col-md-6" id="sexeFormGroup">
+              <label for="inputState">Sexe :</label>
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sexef" value="féminin" onchange="validateSexe()">
+                  <label class="form-check-label" for="sexef">Féminin</label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sexem" value="masculin" onchange="validateSexe()">
+                  <label class="form-check-label" for="sexem">Masculin</label>
+              </div>
+              <div class="invalid-feedback">
+                  Veuillez choisir un sexe.
+              </div>
+          </div>
+          
+          <!-- Colonne du sélecteur de grade -->
+          <div class="col-md-6">
+              <div class="form-group">
+                  <label for="inputState">Grade</label>
+                  <select id="inputState" class="form-control is-invalid" required>
+                      <option value="" disabled selected>Choisissez un grade</option>
+                      <?php
+                      $listeGrade = $gradeManager->getGrade();
 
-                    // Générer le menu HTML
-                    foreach ($listeGrade as $grade) {
-                        echo '<option value="' . $grade['id'] . '">' . $grade['libellé'] . '</option>';
-                    }
-                    ?>
-                </select>
-            </div>
-        </div>
+                      // Générer le menu HTML
+                      foreach ($listeGrade as $grade) {
+                          echo '<option value="' . $grade['id'] . '">' . $grade['libellé'] . '</option>';
+                      }
+                      ?>
+                  </select>
+                </div>
+              </div>
+          </div>
       </div>
+
 
       <div class="form-group row">
         <div class="form-group col-md-6">

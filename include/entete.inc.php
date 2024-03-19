@@ -21,7 +21,9 @@
 
   $gradeManager = new GradeManager($db);
   $caserneManager = new CaserneManager($db);
-
+  $pompierManager = new PompierManager($db);
+  $volontaireManager = new VolontaireManager($db);
+  $professionnelManager = new ProfessionnelManager($db);
 
   if (isset($_POST['deconnexion']))
   {

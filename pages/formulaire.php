@@ -1,20 +1,89 @@
 <?php
 include("../include/entete.inc.php");
 
-if (isset($_POST['valider'])) {
-    $matricule = htmlspecialchars($_POST['matricule'], ENT_QUOTES, 'UTF-8');
-    $naissance = htmlspecialchars($_POST['naissance'], ENT_QUOTES, 'UTF-8');
-    $nom = htmlspecialchars($_POST['nom'], ENT_QUOTES, 'UTF-8');
-    $prenom = htmlspecialchars($_POST['prenom'], ENT_QUOTES, 'UTF-8');
-    $tel = htmlspecialchars($_POST['tel'], ENT_QUOTES, 'UTF-8');
+ini_set('display_errors', 0);
+
+$erreurs = array(); // Initialiser un tableau pour stocker les erreurs
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    try {
+        // Récupération des données du formulaire
+        $matricule = $_POST['matricule'];
+        $date_naissance = $_POST['naissance'];
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $sexe = $_POST['sexe']; 
+        $grade = $_POST['Grade'];
+        $telephone = $_POST['tel'];
+        $caserne = $_POST['Caserne'];
+        $type_pompier = $_POST['type_pompier']; 
+
+        // Insertion des données dans la table Pompier
+        $pompier = new Pompier([
+            'Matricule' => $matricule, 
+            'DateNaiss' => $date_naissance, 
+            'Nom' => $nom, 
+            'Prenom' => $prenom, 
+            'Sexe' => $sexe, 
+            'id' => $grade, 
+            'Tel' => $telephone, 
+            'idCaserne' => $caserne
+        ]);
+
+        // Essayer de définir les valeurs
+            $pompier->setMatricule($matricule);
+            $pompier->setDateNaiss($date_naissance);
+            $pompier->setNom($nom);
+            $pompier->setPrenom($prenom);
+            $pompier->setSexe($sexe);
+            $pompier->setId($grade);
+            $pompier->setTel($telephone);
+            $pompier->setIdCaserne($caserne);
+
+
+        // Si tout se passe bien, insérer dans la base de données
+        $pompierManager->inserer($pompier);
+
+        if ($type_pompier === 'volontaire'){
+            $volontaire = new Volontaire(['Matricule' => $matricule]);
+            $volontaireManager->inserer($volontaire);
+        } else {
+            $pro = new Professionnel(['Matricule' => $matricule]);
+            $professionnelManager->inserer($pro);
+        }
+        
+        header('Location: formulaire.php');
+        exit(); // Assurez-vous de terminer le script après la redirection
+    } catch (PDOException $e) {
+        
+        $erreurs[] = "Une erreur est survenue lors du traitement de votre demande. Veuillez réessayer plus tard.";
+        //var_dump($e->getMessage());
+    } catch (Exception $e) {
+        // Attrapez toute autre exception non gérée ici
+        $erreurs[] = "Une erreur est survenue: " . $e->getMessage();
+        //var_dump($e->getMessage());
+    }
+
+    var_dump($erreurs);
 }
+?> 
 
-
-?>
  
 	<div class="container">
     <?php echo generationEntete("Ajout Pompier") ?>
     <div class="jumbotron">
+          <div class="row">
+              <div class="col">
+              <?php if (!empty($erreurs)): ?>
+                    <?php foreach ($erreurs as $erreur): ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $erreur; ?>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <?php var_dump($erreurs); ?>
+              </div>
+          </div>
     <form method="post" id="formulaire">
       <div class="form-group row">
         <div class="form-group col-md-6">
@@ -58,11 +127,11 @@ if (isset($_POST['valider'])) {
           <div class="col-md-6" >
               <label for="inputSexe">Sexe :</label>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sexeFeminin" value="féminin" onchange="validateSexe()">
+                <input class="form-check-input" type="radio" name="sexe" id="sexeFeminin" value="féminin" onchange="validateSexe()">
                 <label class="form-check-label" for="sexeFeminin">Féminin</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sexeMasculin" value="masculin" onchange="validateSexe()">
+                <input class="form-check-input" type="radio" name="sexe" id="sexeMasculin" value="masculin" onchange="validateSexe()">
                 <label class="form-check-label" for="sexeMasculin">Masculin</label>
               </div>
               <div class="invalid-feedback">
@@ -74,7 +143,7 @@ if (isset($_POST['valider'])) {
           <div class="col-md-6">
               <div class="form-group">
                   <label for="inputState">Grade</label>
-                  <select id="Grade" class="form-control " oninput="validateGrade()" required>
+                  <select id="Grade" class="form-control "  name="Grade" oninput="validateGrade()" required>
                       <option value="" disabled selected>Choisissez un grade</option>
                       <?php
                       $listeGrade = $gradeManager->getGrade();
@@ -102,7 +171,7 @@ if (isset($_POST['valider'])) {
         <div class="col-md-6">
             <div class="form-group">
                 <label for="inputState">Caserne</label>
-                <select id="Caserne" class="form-control " oninput="validateCaserne()" required>
+                <select id="Caserne" class="form-control " name="Caserne" oninput="validateCaserne()" required>
                     <option value="" disabled selected>Choisissez une caserne</option>
                     <?php
                     $listeCaserne = $caserneManager->getCaserne();
@@ -122,11 +191,11 @@ if (isset($_POST['valider'])) {
         <div class="col-md-6">
         <label for="inputType">Type Pompier :</label>
             <div class="form-check form-check-inline" required>
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="professionnel" value="professionnel" onchange="validateType()">
+                <input class="form-check-input" type="radio" name="type_pompier" id="professionnel" value="professionnel" onchange="validateType()">
                 <label class="form-check-label" for="professionnel">Professionnel</label>
             </div>
             <div class="form-check form-check-inline" required>
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="volontaire" value="volontaire" onchange="validateType()">
+                <input class="form-check-input" type="radio" name="type_pompier" id="volontaire" value="volontaire" onchange="validateType()">
                 <label class="form-check-label" for="volontaire">Volontaire</label>
             </div>
         </div>

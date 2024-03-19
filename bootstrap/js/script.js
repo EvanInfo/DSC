@@ -77,12 +77,36 @@ function validateName(inputId) {
     }
 }
 
+function validateSexe() {
+    // Récupérer les boutons radio pour le sexe
+    var sexeFeminin = document.getElementById("sexef");
+    var sexeMasculin = document.getElementById("sexem");
+
+    // Récupérer l'élément <div class="form-group row">
+    var sexeFormGroup = document.getElementById("sexeFormGroup");
+
+    // Vérifier si l'un des boutons radio est sélectionné
+    if (sexeFeminin.checked || sexeMasculin.checked) {
+        // Au moins un bouton radio est sélectionné, ajouter la classe is-valid et retirer la classe is-invalid
+        sexeFormGroup.classList.remove("is-invalid");
+        sexeFormGroup.classList.add("is-valid");
+        return true; // Au moins un bouton radio est sélectionné
+    } else {
+        // Aucun bouton radio n'est sélectionné, ajouter la classe is-invalid et retirer la classe is-valid
+        sexeFormGroup.classList.remove("is-valid");
+        sexeFormGroup.classList.add("is-invalid");
+        return false; // Aucun bouton radio est sélectionné
+    }
+}
+
 
 
 
 // Lier les fonctions du formulaire à l'événement oninput 
 document.getElementById("matricule").addEventListener("input", validateMatricule);
 document.getElementById("naissance").addEventListener("input", validateDate);
+document.getElementById("sexef").addEventListener("change", validateSexe);
+document.getElementById("sexem").addEventListener("change", validateSexe);
 document.getElementById("nom").addEventListener("input", function() {
     validateName("nom");
 });

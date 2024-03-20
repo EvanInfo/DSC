@@ -54,4 +54,5 @@
 </head>
 <body>
   <header>
+    <?php include ("menu.inc.php"); ?>
   </header>

@@ -1,5 +1,8 @@
-.custom-margin-top-6 {
-    margin-top: 6rem; /* Ajustez la valeur selon vos besoins */
+.custom-margin-top-3 {
+    margin-top: 1.5rem; /* Ajustez la valeur selon vos besoins */
+}
+body{
+    background-color: rgb(255, 255, 255);
 }
 
 
@@ -68,4 +71,21 @@
     border-radius: 4px;
 }
 
+.image-petite {
+    max-width: 25%; /* Largeur maximale de l'image */
+    transform: rotate(15deg);
 
+       
+}
+
+.presentation-text {
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px; /* Définir la largeur maximale */
+    padding: 20px; /* Ajouter un peu d'espacement intérieur */
+    background-color: #f8f9fa; /* Couleur de fond */
+    border: 1px solid #dee2e6; /* Bordure */
+    border-radius: 5px; /* Coins arrondis */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre */
+}

@@ -64,12 +64,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //var_dump($e->getMessage());
     }
 
-    var_dump($erreurs);
+    //var_dump($erreurs);
 }
 ?> 
 
  
-	<div class="container">
+  <div class="container custom-margin-top-3">
     <?php echo generationEntete("Ajout Pompier") ?>
     <div class="jumbotron">
           <div class="row">
@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     <?php endforeach; ?>
                 <?php endif; ?>
-                <?php var_dump($erreurs); ?>
+                
               </div>
           </div>
     <form method="post" id="formulaire">
@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <label for="nom">Nom</label>
           <input type="text" class="form-control" name="nom" id="nom" oninput="validateName('nom')" required>
           <div class="invalid-feedback">
-           Le nom du pompier est obligatoire.
+          Le nom du pompier est obligatoire.
           </div>
         </div>
         <div class="form-group col-md-6">
@@ -205,9 +205,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>  
   </div>
 
-  
-  <?php
-    include ("../include/piedDePage.inc.php");
-  ?>
-</body>
-</html>
+    
+    <?php
+      include ("../include/piedDePage.inc.php");
+    ?>
+  </body>
+  </html>

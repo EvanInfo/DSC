@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-danger">
         	
-    
     <!-- Pour passer en mode hamburger si on est sur un petit écran -->
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" 

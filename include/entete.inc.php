@@ -9,6 +9,7 @@
     $_SESSION['login'] = False;
   }
 
+  ob_start();
   require_once ('connection.inc.php');
   require_once ('mesFonctions.inc.php');
 
@@ -25,6 +26,7 @@
   $volontaireManager = new VolontaireManager($db);
   $professionnelManager = new ProfessionnelManager($db);
   $employeurManager = new EmployeurManager($db);
+  $enginManager = new EnginManager($db);
 
   /*if (isset($_POST['deconnexion']))
   {

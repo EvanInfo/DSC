@@ -1,72 +1,53 @@
 <?php
-include("../include/entete.inc.php");
+  include("../include/entete.inc.php");
 
-ini_set('display_errors', 0);
-
-$erreurs = array(); // Initialiser un tableau pour stocker les erreurs
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    try {
-        // Récupération des données du formulaire
-        $matricule = $_POST['matricule'];
-        $date_naissance = $_POST['naissance'];
-        $nom = $_POST['nom'];
-        $prenom = $_POST['prenom'];
-        $sexe = $_POST['sexe']; 
-        $grade = $_POST['Grade'];
-        $telephone = $_POST['tel'];
-        $caserne = $_POST['Caserne'];
-        $type_pompier = $_POST['type_pompier']; 
-
-        // Insertion des données dans la table Pompier
-        $pompier = new Pompier([
-            'Matricule' => $matricule, 
-            'DateNaiss' => $date_naissance, 
-            'Nom' => $nom, 
-            'Prenom' => $prenom, 
-            'Sexe' => $sexe, 
-            'id' => $grade, 
-            'Tel' => $telephone, 
-            'idCaserne' => $caserne
-        ]);
+  ini_set('display_errors', 0);
+  error_reporting(E_ALL);
 
 
-        // Si tout se passe bien, insérer dans la base de données
-        $pompierManager->inserer($pompier);
+  $erreurs = array(); // Initialiser un tableau pour stocker les erreurs
 
-        if ($type_pompier === 'volontaire'){
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      try {
+          // Récupération des données du formulaire
+          $matricule = $_POST['matricule'];
+          $date_naissance = $_POST['naissance'];
+          $nom = $_POST['nom'];
+          $prenom = $_POST['prenom'];
+          $sexe = $_POST['sexe']; 
+          $grade = $_POST['Grade'];
+          $telephone = $_POST['tel'];
+          $caserne = $_POST['Caserne'];
+          $type_pompier = $_POST['type_pompier']; 
 
-            $nomEmployeur = $_POST['nom_employeur'];
-            $prenomEmployeur = $_POST['prenom_employeur'];
-            $telEmployeur = $_POST['tel_employeur'];
+          // Insertion des données dans la table Pompier
+          $pompier = new Pompier([
+              'Matricule' => $matricule, 
+              'DateNaiss' => $date_naissance, 
+              'Nom' => $nom, 
+              'Prenom' => $prenom, 
+              'Sexe' => $sexe, 
+              'id' => $grade, 
+              'Tel' => $telephone, 
+              'idCaserne' => $caserne
+          ]);
 
-            $employeurInfo = $employeurManager->affichageEmployeur();
-      
-            // Variable pour stocker l'ID de l'employeur trouvé
-            $employeurID = 0;
-            
-            // Parcourir les informations des employeurs pour comparer avec les données du formulaire
-              foreach ($employeurInfo as $employeur) {
-                  if ($nomEmployeur === $employeur['Nom'] && $prenomEmployeur === $employeur['Prenom'] && $telEmployeur === $employeur['Tel']) {
-                      // Si les données du formulaire correspondent à une entrée dans la table Employeur, 
-                      // stocker l'ID de l'employeur
-                      $employeurID = $employeur['id'];
-                      // Sortir de la boucle car nous avons trouvé une correspondance
-                      break;
-                  }
-              }
 
-              if ($employeurID === 0){
-                
-                $employeur = new Employeur([
-                      'Nom' => $nomEmployeur,
-                      'Prenom' => $prenomEmployeur,
-                      'Tel' => $telEmployeur
-                ]);
-                
-                $employeurManager->insererEmployeur($employeur);
+          // Si tout se passe bien, insérer dans la base de données
+          $pompierManager->inserer($pompier);
+          
+          if ($type_pompier === 'volontaire'){
 
-                $employeurInfo = $employeurManager->affichageEmployeur();
+              $nomEmployeur = $_POST['nom_employeur'];
+              $prenomEmployeur = $_POST['prenom_employeur'];
+              $telEmployeur = $_POST['tel_employeur'];
+
+              $employeurInfo = $employeurManager->affichageEmployeur();
+        
+              // Variable pour stocker l'ID de l'employeur trouvé
+              $employeurID = 0;
+              
+              // Parcourir les informations des employeurs pour comparer avec les données du formulaire
                 foreach ($employeurInfo as $employeur) {
                     if ($nomEmployeur === $employeur['Nom'] && $prenomEmployeur === $employeur['Prenom'] && $telEmployeur === $employeur['Tel']) {
                         // Si les données du formulaire correspondent à une entrée dans la table Employeur, 
@@ -76,34 +57,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         break;
                     }
                 }
-              }
 
-              $volontaire = new Volontaire([
-                'Matricule' => $matricule,
-                'id'=> $employeurID
+                if ($employeurID === 0){
+                  
+                  $employeur = new Employeur([
+                        'Nom' => $nomEmployeur,
+                        'Prenom' => $prenomEmployeur,
+                        'Tel' => $telEmployeur
+                  ]);
+                  
+                  $employeurManager->insererEmployeur($employeur);
 
-              ]);
+                  $employeurInfo = $employeurManager->affichageEmployeur();
+                  foreach ($employeurInfo as $employeur) {
+                      if ($nomEmployeur === $employeur['Nom'] && $prenomEmployeur === $employeur['Prenom'] && $telEmployeur === $employeur['Tel']) {
+                          // Si les données du formulaire correspondent à une entrée dans la table Employeur, 
+                          // stocker l'ID de l'employeur
+                          $employeurID = $employeur['id'];
+                          // Sortir de la boucle car nous avons trouvé une correspondance
+                          break;
+                      }
+                  }
+                }
 
-              $volontaireManager->inserer($volontaire);
-        } else {
-            $pro = new Professionnel(['Matricule' => $matricule]);
-            $professionnelManager->inserer($pro);
-        }
+                $volontaire = new Volontaire([
+                  'Matricule' => $matricule,
+                  'id'=> $employeurID
+
+                ]);
+
+                $volontaireManager->inserer($volontaire);
+          } else {
+              $pro = new Professionnel(['Matricule' => $matricule]);
+              $professionnelManager->inserer($pro);
+          }
         
         header('Location: Accueil.php');
-        exit(); // Assurez-vous de terminer le script après la redirection
-    } catch (PDOException $e) {
-        
-        $erreurs[] = "Une erreur est survenue lors du traitement de votre demande. Veuillez réessayer plus tard.";
-        //var_dump($e->getMessage());
-    } catch (Exception $e) {
-        // Attrapez toute autre exception non gérée ici
-        $erreurs[] = "Une erreur est survenue: " . $e->getMessage();
-        //var_dump($e->getMessage());
-    }
+        exit();
+      } catch (PDOException $e) {
+          
+          $erreurs[] = "Une erreur est survenue lors du traitement de votre demande. Veuillez réessayer plus tard.";
+          //var_dump($e->getMessage());
+      } catch (Exception $e) {
+          // Attrapez toute autre exception non gérée ici
+          $erreurs[] = "Une erreur est survenue: " . $e->getMessage();
+          //var_dump($e->getMessage());
+      }
 
-    //var_dump($erreurs);
-}
+      //var_dump($erreurs);
+  }
 ?> 
 
  
@@ -254,7 +256,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-group row">
             <div class="form-group col-md-6">
                 <label for="tel_employeur">Téléphone de l'employeur</label>
-                <input type="tel" class="form-control" name="tel_employeur" id="tel_employeur" oninput="validateTelephoneEmployeur()" required>
+                <input type="tel" class="form-control" name="tel_employeur" id="tel_employeur" oninput="validateTelephoneEmployeur()" >
                 
                 <div class="invalid-feedback">
                   Vous devez fournir un telephone valide.

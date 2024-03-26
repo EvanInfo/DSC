@@ -114,7 +114,7 @@ class Pompier
     public function setPrenom($prenom)
     {
         // Vérifie si la valeur contient au moins une lettre et au plus 25 lettres
-        if (preg_match('/^[A-Za-z]{1,25}$/', $prenom)) {
+        if (preg_match('/^[A-Za-z_-]{1,25}$/', $prenom)) {
             $this->_Prenom = $prenom;
         } else {
             // Gérer l'erreur, par exemple, lancer une exception ou définir une valeur par défaut
@@ -124,9 +124,21 @@ class Pompier
 
     public function setDateNaiss($dateNaiss)
     {
-        // Vous pouvez ajouter des validations de format de date ici si nécessaire
+        // Vérifier si la date de naissance est valide (supérieure à 1900)
+        if (strtotime($dateNaiss) < strtotime('1900-01-01')) {
+            throw new InvalidArgumentException("La date de naissance ne peut pas être inférieure à 1900.");
+        }
+
+        // Vérifier si le pompier a au moins 18 ans
+        $date18AnsAuparavant = date('Y-m-d', strtotime('-18 years'));
+        if (strtotime($dateNaiss) > strtotime($date18AnsAuparavant)) {
+            throw new InvalidArgumentException("Le pompier doit avoir au moins 18 ans.");
+        }
+
+        // Si toutes les validations sont réussies, attribuer la date de naissance
         $this->_DateNaiss = $dateNaiss;
     }
+
 
     public function setTel($tel)
     {

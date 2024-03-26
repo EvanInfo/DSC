@@ -24,13 +24,14 @@
   $pompierManager = new PompierManager($db);
   $volontaireManager = new VolontaireManager($db);
   $professionnelManager = new ProfessionnelManager($db);
+  $employeurManager = new EmployeurManager($db);
 
-  if (isset($_POST['deconnexion']))
+  /*if (isset($_POST['deconnexion']))
   {
     session_unset ();
     session_destroy ();
     header('Location: ../pages/formulaire.php');
-  }
+  }*/
 ?>
 
 <!DOCTYPE html>

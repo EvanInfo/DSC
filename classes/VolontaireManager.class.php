@@ -16,10 +16,12 @@ class VolontaireManager
         }
 
         // Préparation de la requête d'insertion
-        $requete = $this->_db->prepare("INSERT INTO volontaire (Matricule) VALUES (:matricule)");
+        $requete = $this->_db->prepare("INSERT INTO volontaire (Matricule, id) VALUES (:matricule, :id)");
 
         // Liaison des valeurs avec les paramètres de la requête
         $requete->bindValue(':matricule', $volontaire->getMatricule());
+        $requete->bindValue(':id', $volontaire->getId());
+ 
  
 
         // Exécution de la requête

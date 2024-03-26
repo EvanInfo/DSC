@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `employeur`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `employeur` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` varchar(255) DEFAULT NULL,
   `Prenom` varchar(255) DEFAULT NULL,
   `Tel` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `employeur` (
 
 LOCK TABLES `employeur` WRITE;
 /*!40000 ALTER TABLE `employeur` DISABLE KEYS */;
-INSERT INTO `employeur` VALUES (3,'VERSE','Alain','0676542431'),(4,'NALINE','André','0454245142'),(5,'ZOLE','Camille','0676524156');
+INSERT INTO `employeur` VALUES (3,'VERSE','Alain','0676542431'),(4,'NALINE','André','0454245142'),(5,'ZOLE','Camille','0676524156'),(7,'Kenobi','Obi-wan','0664548650'),(8,'Sheev','Palpatine','0525165584');
 /*!40000 ALTER TABLE `employeur` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-12 13:38:07
+-- Dump completed on 2024-03-26 16:53:50

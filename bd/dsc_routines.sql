@@ -16,31 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `reclamer`
+-- Dumping events for database 'dsc'
 --
 
-DROP TABLE IF EXISTS `reclamer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `reclamer` (
-  `TYPE_ENGIN_id` varchar(255) NOT NULL,
-  `HABILITATION_id` int(11) NOT NULL,
-  `nb` int(11) DEFAULT NULL,
-  PRIMARY KEY (`TYPE_ENGIN_id`,`HABILITATION_id`),
-  KEY `HABILITATION_id` (`HABILITATION_id`),
-  CONSTRAINT `reclamer_ibfk_1` FOREIGN KEY (`TYPE_ENGIN_id`) REFERENCES `type_engin` (`id`),
-  CONSTRAINT `reclamer_ibfk_2` FOREIGN KEY (`HABILITATION_id`) REFERENCES `habilitation` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
 --
--- Dumping data for table `reclamer`
+-- Dumping routines for database 'dsc'
 --
-
-LOCK TABLES `reclamer` WRITE;
-/*!40000 ALTER TABLE `reclamer` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reclamer` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -51,4 +32,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-26 16:53:50
+-- Dump completed on 2024-03-26 16:53:52

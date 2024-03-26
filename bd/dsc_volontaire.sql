@@ -27,8 +27,8 @@ CREATE TABLE `volontaire` (
   `id` int(11) DEFAULT NULL,
   `bip` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Matricule`),
-  KEY `id` (`id`),
-  CONSTRAINT `volontaire_ibfk_1` FOREIGN KEY (`id`) REFERENCES `employeur` (`id`),
+  KEY `fk_employeur_id` (`id`),
+  CONSTRAINT `fk_employeur_id` FOREIGN KEY (`id`) REFERENCES `employeur` (`id`),
   CONSTRAINT `volontaire_ibfk_2` FOREIGN KEY (`Matricule`) REFERENCES `pompier` (`Matricule`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -39,7 +39,7 @@ CREATE TABLE `volontaire` (
 
 LOCK TABLES `volontaire` WRITE;
 /*!40000 ALTER TABLE `volontaire` DISABLE KEYS */;
-INSERT INTO `volontaire` VALUES (986995,3,'15');
+INSERT INTO `volontaire` VALUES (441512,7,NULL),(456466,7,NULL),(541541,8,NULL),(546415,8,NULL),(986995,3,'15');
 /*!40000 ALTER TABLE `volontaire` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-12 13:38:07
+-- Dump completed on 2024-03-26 16:53:51

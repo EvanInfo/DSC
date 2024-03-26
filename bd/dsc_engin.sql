@@ -26,6 +26,7 @@ CREATE TABLE `engin` (
   `Numéro` int(11) NOT NULL,
   `Caserne_id` int(11) NOT NULL,
   `Type_Engin_id` varchar(255) NOT NULL,
+  `Url_Image` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Numéro`,`Caserne_id`,`Type_Engin_id`),
   KEY `Caserne_id` (`Caserne_id`),
   KEY `Type_Engin_id` (`Type_Engin_id`),
@@ -40,7 +41,7 @@ CREATE TABLE `engin` (
 
 LOCK TABLES `engin` WRITE;
 /*!40000 ALTER TABLE `engin` DISABLE KEYS */;
-INSERT INTO `engin` VALUES (1,1,'EPA'),(2,1,'EPA');
+INSERT INTO `engin` VALUES (1,1,'EPA',NULL),(2,1,'EPA',NULL);
 /*!40000 ALTER TABLE `engin` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-12 13:38:07
+-- Dump completed on 2024-03-26 16:53:51

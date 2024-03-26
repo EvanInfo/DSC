@@ -3,7 +3,7 @@ include("../include/entete.inc.php");
 ?>
 <div class="container custom-margin-top-3"> 
     
-    <div class ="entête">
+    <div class ="entête custom-margin-top-3">
         <?php echo generationEntete("Accueil Pompier") ?>
     </div>
     <div id="carouselExampleFade" class="carousel slide carousel-fade w-75 mx-auto" data-ride="carousel">
@@ -28,12 +28,11 @@ include("../include/entete.inc.php");
         </a>
     </div>
     
-    <div class="presentation-text">
-        <p>Bienvenue sur notre application dédiée à la gestion de l'agenda et des ressources des pompiers. Notre application vise à simplifier et à optimiser la planification des interventions et des équipes de secours. Avec notre outil convivial, vous pouvez facilement enregistrer les emplois du temps des pompiers, planifier leurs rotations et organiser les missions de manière efficace.
-        En plus de la gestion des agendas, notre application offre également la possibilité d'enregistrer les informations des véhicules d'urgence utilisés par les équipes de pompiers. Que ce soit des camions de pompiers, des ambulances ou d'autres véhicules spécialisés, vous pouvez stocker leurs détails, leurs disponibilités et leurs maintenances dans notre système centralisé.</p>
-        <div class="position-absolute ">
+    <div class="presentation-text text-center">
+        <p>Bienvenue sur notre application dédiée à la gestion de l'agenda et des ressources des pompiers</p>
+        <!--<div class="position-absolute ">
             <img src="../Image/optimus.png" class=" rounded float-right image-petite" alt="">
-        </div>
+        </div>-->
     </div>
 
 

@@ -1,5 +1,5 @@
 .custom-margin-top-3 {
-    margin-top: 1.5rem; /* Ajustez la valeur selon vos besoins */
+    margin-top: 3.5rem; /* Ajustez la valeur selon vos besoins */
 }
 body{
     background-color: rgb(255, 255, 255);
@@ -88,4 +88,8 @@ body{
     border: 1px solid #dee2e6; /* Bordure */
     border-radius: 5px; /* Coins arrondis */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+.navbar {
+    min-height: 80px; /* Modifier la hauteur selon vos besoins */
 }

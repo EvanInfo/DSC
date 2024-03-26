@@ -30,29 +30,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'idCaserne' => $caserne
         ]);
 
-        // Essayer de définir les valeurs
-            $pompier->setMatricule($matricule);
-            $pompier->setDateNaiss($date_naissance);
-            $pompier->setNom($nom);
-            $pompier->setPrenom($prenom);
-            $pompier->setSexe($sexe);
-            $pompier->setId($grade);
-            $pompier->setTel($telephone);
-            $pompier->setIdCaserne($caserne);
-
 
         // Si tout se passe bien, insérer dans la base de données
         $pompierManager->inserer($pompier);
 
         if ($type_pompier === 'volontaire'){
-            $volontaire = new Volontaire(['Matricule' => $matricule]);
-            $volontaireManager->inserer($volontaire);
+
+            $nomEmployeur = $_POST['nom_employeur'];
+            $prenomEmployeur = $_POST['prenom_employeur'];
+            $telEmployeur = $_POST['tel_employeur'];
+
+            $employeurInfo = $employeurManager->affichageEmployeur();
+      
+            // Variable pour stocker l'ID de l'employeur trouvé
+            $employeurID = 0;
+            
+            // Parcourir les informations des employeurs pour comparer avec les données du formulaire
+              foreach ($employeurInfo as $employeur) {
+                  if ($nomEmployeur === $employeur['Nom'] && $prenomEmployeur === $employeur['Prenom'] && $telEmployeur === $employeur['Tel']) {
+                      // Si les données du formulaire correspondent à une entrée dans la table Employeur, 
+                      // stocker l'ID de l'employeur
+                      $employeurID = $employeur['id'];
+                      // Sortir de la boucle car nous avons trouvé une correspondance
+                      break;
+                  }
+              }
+
+              if ($employeurID === 0){
+                
+                $employeur = new Employeur([
+                      'Nom' => $nomEmployeur,
+                      'Prenom' => $prenomEmployeur,
+                      'Tel' => $telEmployeur
+                ]);
+                
+                $employeurManager->insererEmployeur($employeur);
+
+                $employeurInfo = $employeurManager->affichageEmployeur();
+                foreach ($employeurInfo as $employeur) {
+                    if ($nomEmployeur === $employeur['Nom'] && $prenomEmployeur === $employeur['Prenom'] && $telEmployeur === $employeur['Tel']) {
+                        // Si les données du formulaire correspondent à une entrée dans la table Employeur, 
+                        // stocker l'ID de l'employeur
+                        $employeurID = $employeur['id'];
+                        // Sortir de la boucle car nous avons trouvé une correspondance
+                        break;
+                    }
+                }
+              }
+
+              $volontaire = new Volontaire([
+                'Matricule' => $matricule,
+                'id'=> $employeurID
+
+              ]);
+
+              $volontaireManager->inserer($volontaire);
         } else {
             $pro = new Professionnel(['Matricule' => $matricule]);
             $professionnelManager->inserer($pro);
         }
         
-        header('Location: formulaire.php');
+        header('Location: Accueil.php');
         exit(); // Assurez-vous de terminer le script après la redirection
     } catch (PDOException $e) {
         
@@ -191,17 +229,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="col-md-6">
         <label for="inputType">Type Pompier :</label>
             <div class="form-check form-check-inline" required>
-                <input class="form-check-input" type="radio" name="type_pompier" id="professionnel" value="professionnel" onchange="validateType()">
+                <input class="form-check-input" type="radio" name="type_pompier" id="professionnel" value="professionnel" onchange="validateType(); basculerChampsEmployeur()">
                 <label class="form-check-label" for="professionnel">Professionnel</label>
             </div>
             <div class="form-check form-check-inline" required>
-                <input class="form-check-input" type="radio" name="type_pompier" id="volontaire" value="volontaire" onchange="validateType()">
+                <input class="form-check-input" type="radio" name="type_pompier" id="volontaire" value="volontaire" onchange="validateType(); basculerChampsEmployeur()">
                 <label class="form-check-label" for="volontaire">Volontaire</label>
             </div>
         </div>
       </div>
-      <input type="submit" value="Valider" class="btn btn-primary" name="valider" id="boutton" />
       
+      
+      <div id="champs-employeur" style="display: none;"> <!-- Cette div enveloppe les champs d'employeur et est initialement cachée -->
+        <div class="form-group row">
+            <div class="form-group col-md-6">
+                <label for="nom_employeur">Nom de l'employeur</label>
+                <input type="text" class="form-control" name="nom_employeur" id="nom_employeur">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="prenom_employeur">Prénom de l'employeur</label>
+                <input type="text" class="form-control" name="prenom_employeur" id="prenom_employeur">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="form-group col-md-6">
+                <label for="tel_employeur">Téléphone de l'employeur</label>
+                <input type="tel" class="form-control" name="tel_employeur" id="tel_employeur" oninput="validateTelephoneEmployeur()" required>
+                
+                <div class="invalid-feedback">
+                  Vous devez fournir un telephone valide.
+                </div>
+            </div>
+          </div>
+      </div>
+
+
+
+
+      <input type="submit" value="Valider" class="btn btn-primary" name="valider" id="boutton" />
+  
     </form>  
   </div>
 

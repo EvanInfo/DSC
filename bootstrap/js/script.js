@@ -120,6 +120,21 @@ function validateTelephone() {
     }
 }
 
+function validateTelephoneEmployeur() {
+    var telephoneInput = document.getElementById("tel_employeur");
+    var telephoneValue = telephoneInput.value.trim();
+    
+    if (/^\d{10}$/.test(telephoneValue)) {
+        telephoneInput.classList.remove("is-invalid");
+        telephoneInput.classList.add("is-valid");
+        return true;
+    } else {
+        telephoneInput.classList.add("is-invalid");
+        telephoneInput.classList.remove("is-valid");
+        return false;
+    }
+}
+
 function validateCaserne(){
     var CaserneElement = document.getElementById("Caserne");
     var selectedCaserne = CaserneElement.value;
@@ -176,3 +191,27 @@ document.getElementById("tel").addEventListener("input", validateTelephone);
 document.getElementById("Caserne").addEventListener("change",  validateCaserne);
 document.getElementById("professionnel").addEventListener("change", validateType);
 document.getElementById("volontaire").addEventListener("change", validateType);
+document.getElementById("tel_employeur").addEventListener("input", validateTelephoneEmployeur);
+
+
+// Fonction pour afficher/cacher les champs d'employeur en fonction de la sélection de l'utilisateur
+function basculerChampsEmployeur() {
+    var typePompier = document.querySelector('input[name="type_pompier"]:checked').value;
+    var champsEmployeur = document.getElementById('champs-employeur');
+
+    // Si l'utilisateur sélectionne "Volontaire", afficher les champs d'employeur, sinon les cacher
+    if (typePompier === 'volontaire') {
+        champsEmployeur.style.display = 'block';
+    } else {
+        champsEmployeur.style.display = 'none';
+    }
+}
+
+// Ajoutez un gestionnaire d'événements pour détecter les changements de sélection
+var typePompierInputs = document.querySelectorAll('input[name="type_pompier"]');
+typePompierInputs.forEach(function(input) {
+    input.addEventListener('change', basculerChampsEmployeur);
+});
+
+// Assurez-vous d'appeler la fonction initiale pour configurer l'état initial des champs
+basculerChampsEmployeur();

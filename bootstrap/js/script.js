@@ -63,6 +63,23 @@ function validateName(inputId) {
     }
 }
 
+
+function validateNameEmployeur(inputId) {
+    var name = document.getElementById(inputId).value;
+    var inputField = document.getElementById(inputId);
+
+    if (/^[a-zA-Z]{1,25}$/.test(name)) {
+        inputField.classList.remove("is-invalid");
+        inputField.classList.add("is-valid");
+        return true;
+    } else {
+        inputField.classList.remove("is-valid");
+        inputField.classList.add("is-invalid");
+        return false;
+    }
+}
+
+
 function validateSexe() {
     var sexeFeminin = document.getElementById("sexeFeminin");
     var sexeMasculin = document.getElementById("sexeMasculin");
@@ -192,6 +209,8 @@ document.getElementById("Caserne").addEventListener("change",  validateCaserne);
 document.getElementById("professionnel").addEventListener("change", validateType);
 document.getElementById("volontaire").addEventListener("change", validateType);
 document.getElementById("tel_employeur").addEventListener("input", validateTelephoneEmployeur);
+document.getElementById("nom_employeur").addEventListener("input", validateNameEmployeur);
+document.getElementById("prenom_employeur").addEventListener("input", validateNameEmployeur);
 
 
 // Fonction pour afficher/cacher les champs d'employeur en fonction de la sélection de l'utilisateur

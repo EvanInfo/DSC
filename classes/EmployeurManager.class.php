@@ -15,11 +15,7 @@ class EmployeurManager
             throw new Exception("Tous les attributs requis doivent être définis avant d'insérer dans la base de données.");
         }
 
-        // Utilisation des setters pour définir les valeurs des attributs
-        $employeur->setNom($employeur->getNom());
-        $employeur->setPrenom($employeur->getPrenom());
-        $employeur->setTel($employeur->getTel());
-
+    
         // Préparation de la requête d'insertion
         $requete = $this->_db->prepare("INSERT INTO employeur (Nom, Prenom, Tel) VALUES (:nom, :prenom, :tel)");
 

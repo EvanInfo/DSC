@@ -167,7 +167,7 @@
           <div class="col-md-6" >
               <label for="inputSexe">Sexe :</label>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="sexe" id="sexeFeminin" value="féminin" onchange="validateSexe()">
+                <input class="form-check-input" type="radio" name="sexe" id="sexeFeminin" value="féminin" onchange="validateSexe()" checked>
                 <label class="form-check-label" for="sexeFeminin">Féminin</label>
               </div>
               <div class="form-check">
@@ -231,7 +231,7 @@
         <div class="col-md-6">
         <label for="inputType">Type Pompier :</label>
             <div class="form-check form-check-inline" required>
-                <input class="form-check-input" type="radio" name="type_pompier" id="professionnel" value="professionnel" onchange="validateType(); basculerChampsEmployeur()">
+                <input class="form-check-input" type="radio" name="type_pompier" id="professionnel" value="professionnel" onchange="validateType(); basculerChampsEmployeur()" checked>
                 <label class="form-check-label" for="professionnel">Professionnel</label>
             </div>
             <div class="form-check form-check-inline" required>
@@ -246,11 +246,17 @@
         <div class="form-group row">
             <div class="form-group col-md-6">
                 <label for="nom_employeur">Nom de l'employeur</label>
-                <input type="text" class="form-control" name="nom_employeur" id="nom_employeur">
+                <input type="text" class="form-control" name="nom_employeur" id="nom_employeur" oninput="validateNameEmployeur('nom_employeur')" >
+                <div class="invalid-feedback">
+                  Vous devez fournir un nom valide.
+                </div>
             </div>
             <div class="form-group col-md-6">
                 <label for="prenom_employeur">Prénom de l'employeur</label>
-                <input type="text" class="form-control" name="prenom_employeur" id="prenom_employeur">
+                <input type="text" class="form-control" name="prenom_employeur" id="prenom_employeur" oninput="validateNameEmployeur('prenom_employeur')">
+                <div class="invalid-feedback">
+                  Vous devez fournir un prénom valide.
+                </div>
             </div>
         </div>
         <div class="form-group row">

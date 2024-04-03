@@ -27,6 +27,7 @@
   $professionnelManager = new ProfessionnelManager($db);
   $employeurManager = new EmployeurManager($db);
   $enginManager = new EnginManager($db);
+  $typeEnginManager = new TypeEnginManager($db);
 
   /*if (isset($_POST['deconnexion']))
   {

@@ -93,3 +93,13 @@ body{
 .navbar {
     min-height: 80px; /* Modifier la hauteur selon vos besoins */
 }
+
+.entete-page-color{
+    background-color: #E5E8EB;
+    background-size: cover;
+    width: 100%;
+}
+.entete-page{
+    margin-top: -50px;
+    
+}

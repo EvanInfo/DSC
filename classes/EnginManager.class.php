@@ -14,13 +14,6 @@ class EnginManager
         if (!$engin->getNuméro() || !$engin->getCaserneId() || !$engin->getTypeEnginId() || $engin->getUrlImage()) {
             throw new Exception("Tous les attributs requis doivent être définis avant d'insérer dans la base de données.");
         }
-
-        // Utilisation des setters pour définir les valeurs des attributs
-        $engin->setNuméro($engin->getNuméro());
-        $engin->setCaserneId($engin->getCaserneId());
-        $engin->setTypeEnginId($engin->getTypeEnginId());
-        $engin->setUrlImage($engin->getUrlImage());
-
         // Préparation de la requête d'insertion
         $requete = $this->_db->prepare("INSERT INTO engin (Numéro, Caserne_id, Type_Engin_id, Url_Image) VALUES (:numero, :caserne_id, :type_engin_id, :url_image)");
 

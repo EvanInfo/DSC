@@ -1,3 +1,8 @@
+
+.custom-margin-top-1 {
+    margin-top: 1.5rem; /* Ajustez la valeur selon vos besoins */
+}
+
 .custom-margin-top-3 {
     margin-top: 3.5rem; /* Ajustez la valeur selon vos besoins */
 }
@@ -102,4 +107,12 @@ body{
 .entete-page{
     margin-top: -50px;
     
+}
+
+.center{
+    justify-content: center;
+}
+
+.champCaserne{
+    width: 250px;
 }

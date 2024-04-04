@@ -11,7 +11,9 @@ include("../include/entete.inc.php");
         <p class="text-center">Voici la liste des types de véhicules que l'on peut trouver dans une caserne de pompier</p>
       </div>
     </div>
-    <button type="button" class="btn btn-danger btn-top-right">Danger</button>
+    <div class="text-center">
+      <button type="button" class="btn btn-danger" onclick="window.location.href='ajout_vehicule.php'">Ajouter véhicules</button>
+    </div>
 
     <?php
       $vehicule = $enginManager->affichageEngin();
@@ -23,4 +25,4 @@ include("../include/entete.inc.php");
 
 <?php
     include ("../include/piedDePage.inc.php");
-  ?>
+?>

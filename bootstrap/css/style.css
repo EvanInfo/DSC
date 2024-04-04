@@ -30,7 +30,7 @@ body{
 .photo {
     margin-right: 5px;
     padding: 5px;
-    background-color: #ddd;
+    background-color: #ffffff;
     border-radius: 3px;
     display: inline-block;
 }
@@ -115,4 +115,18 @@ body{
 
 .champCaserne{
     width: 250px;
+}
+
+.champLibelleEngin{
+    width: 350px;
+}
+
+.bordure-none {
+    border: none !important;
+}
+
+.image-container-wrapper {
+    max-width: 300px; /* Vous pouvez ajuster la taille maximale selon vos besoins */
+    margin: auto; /* Pour centrer horizontalement la zone d'affichage de l'image */
+    overflow: hidden; /* Pour cacher tout contenu dépassant de la taille maximale */
 }

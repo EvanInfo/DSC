@@ -234,3 +234,25 @@ typePompierInputs.forEach(function(input) {
 
 // Assurez-vous d'appeler la fonction initiale pour configurer l'état initial des champs
 basculerChampsEmployeur();
+
+function afficherImageEnTempsReel() {
+    document.getElementById('photo').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const image = new Image();
+            image.src = e.target.result;
+            image.classList.add("img-fluid");
+            document.getElementById('imageContainer').innerHTML = '';
+            document.getElementById('imageContainer').appendChild(image);
+        }
+
+        reader.readAsDataURL(file);
+    });
+}
+
+// Appel de la fonction au chargement du document
+document.addEventListener("DOMContentLoaded", function() {
+    afficherImageEnTempsReel();
+});

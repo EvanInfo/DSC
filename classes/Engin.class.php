@@ -5,7 +5,7 @@ class Engin
 	private $_Numéro;
 	private $_Caserne_id;
     private $_Type_Engin_id;
-    private $_Url_Image;
+    
 	
 	public function __construct(array $donnees)
 	{
@@ -41,10 +41,7 @@ class Engin
         return $this->_Type_Engin_id;
     }
 	
-    public function getUrlImage()
-    {
-        return $this->_Url_Image;
-    }
+   
 
 	// Setters
 
@@ -78,15 +75,6 @@ class Engin
         }
     }
 
-    public function setUrlImage($Url_Image)
-    {
-        // Vérifie si la valeur contient au moins une lettre et au plus 25 lettres
-        if (preg_match('/^[A-Za-z]{1,25}$/', $Url_Image)) {
-            $this->_Url_Image = $Url_Image;
-        } else {
-            // Gérer l'erreur, par exemple, lancer une exception ou définir une valeur par défaut
-            throw new InvalidArgumentException("L'url de l'engin doit contenir au moins une lettre et au maximum 25 lettres.");
-        }
-    }
+   
 }
 ?>

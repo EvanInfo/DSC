@@ -11,17 +11,17 @@ class EnginManager
     public function insererEngin(Engin $engin)
     {
         // Vérifier si tous les attributs requis sont définis
-        if (!$engin->getNuméro() || !$engin->getCaserneId() || !$engin->getTypeEnginId() || $engin->getUrlImage()) {
+        if (!$engin->getNuméro() || !$engin->getCaserneId() || !$engin->getTypeEnginId()) {
             throw new Exception("Tous les attributs requis doivent être définis avant d'insérer dans la base de données.");
         }
         // Préparation de la requête d'insertion
-        $requete = $this->_db->prepare("INSERT INTO engin (Numéro, Caserne_id, Type_Engin_id, Url_Image) VALUES (:numero, :caserne_id, :type_engin_id, :url_image)");
+        $requete = $this->_db->prepare("INSERT INTO engin (Numéro, Caserne_id, Type_Engin_id) VALUES (:numero, :caserne_id, :type_engin_id)");
 
         // Liaison des valeurs avec les paramètres de la requête
         $requete->bindValue(':numero', $engin->getNuméro());
         $requete->bindValue(':caserne_id', $engin->getCaserneId());
         $requete->bindValue(':type_engin_id', $engin->getTypeEnginId());
-        $requete->bindValue(':url_image', $engin->getUrlImage());
+        
         // Exécution de la requête
         $requete->execute();
     }

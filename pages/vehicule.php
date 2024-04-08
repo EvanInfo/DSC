@@ -16,7 +16,7 @@ include("../include/entete.inc.php");
     </div>
 
     <?php
-      $vehicule = $enginManager->affichageEngin();
+      $vehicule =  $typeEnginManager->affichageTypeEngin();
       //var_dump($vehicule);
       include('../script/affichage_vehicule.php');
     ?>

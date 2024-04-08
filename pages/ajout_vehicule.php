@@ -53,6 +53,20 @@ include("../include/entete.inc.php");
       </div>
 
     </div>
+    <?php
+        if (isset($_SESSION['success_message'])) {
+            echo '<p class="success-message">' . $_SESSION['success_message'] . '</p>';
+
+            // Effacer le message de succès après l'avoir affiché
+            unset($_SESSION['success_message']);
+        }
+        if (isset($_SESSION['error_message'])) {
+            echo '<p class="alert alert-danger">' . $_SESSION['error_message'] . '</p>';
+
+            // Effacer le message de succès après l'avoir affiché
+            unset($_SESSION['error_message']);
+        }
+        ?>
 
 </div>
 

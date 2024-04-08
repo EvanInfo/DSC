@@ -36,10 +36,22 @@ class TypeEnginManager
         }
     }
 
-
-    public function affichageTypeEngin($idVehicule)
+    
+    public function affichageTypeEngin()
     {
-        $q = $this->_db->prepare('SELECT Libellé FROM type_engin WHERE id = :id' );
+        $q = $this->_db->prepare('SELECT * FROM type_engin');
+        $q->execute();
+
+        $typeEngin = $q->fetchALL(PDO::FETCH_ASSOC);
+        // Fermeture du curseur
+        $q->closeCursor();
+        //var_dump($typeEngin);
+        return  $typeEngin;
+    }
+
+    public function affichageTypeEnginId($idVehicule)
+    {
+        $q = $this->_db->prepare('SELECT * FROM type_engin WHERE id = :id' );
         $q->bindValue(':id', $idVehicule, PDO::PARAM_STR);
         $q->execute();
 
@@ -47,8 +59,43 @@ class TypeEnginManager
         // Fermeture du curseur
         $q->closeCursor();
         //var_dump($typeEngin);
-        return  $typeEngin['Libellé'];
+        return  $typeEngin;
     }
+
+    public function supprimerTypeEnginId($idVehicule)
+    {
+        // Préparation de la requête de suppression
+        $q = $this->_db->prepare('DELETE FROM type_engin WHERE id = :id');
+        $q->bindValue(':id', $idVehicule, PDO::PARAM_STR);
+        
+        // Exécution de la requête
+        $q->execute();
+        
+        // Fermeture du curseur
+        $q->closeCursor();
+        
+       
+    }
+
+    public function recuperationId()
+    {
+        // Préparation de la requête de sélection des IDs
+        $q = $this->_db->prepare('SELECT id FROM type_engin');
+        
+        // Exécution de la requête
+        $q->execute();
+        
+        // Récupération de tous les résultats sous forme de tableau associatif
+        $typeEngin = $q->fetchAll(PDO::FETCH_ASSOC);
+        
+        // Fermeture du curseur
+        $q->closeCursor();
+        
+        //var_dump( $typeEngin);
+        // Retourner le tableau des IDs
+        return $typeEngin;
+    }
+
 
     public function setDB(PDO $db)
     {

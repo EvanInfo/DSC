@@ -62,6 +62,23 @@ class TypeEnginManager
         return  $typeEngin;
     }
 
+    public function updateTypeEnginId(TypeEngin $engin)
+    {
+        try {
+            $q = $this->_db->prepare('UPDATE type_engin SET Libellé = :libelle, Url_Image = :urlImage WHERE id = :id');
+            $q->bindValue(':id', $engin->getId(), PDO::PARAM_STR);
+            $q->bindValue(':libelle', $engin->getlibelle(), PDO::PARAM_STR);
+            $q->bindValue(':urlImage',$engin->getUrl_Image(), PDO::PARAM_STR);
+            $q->execute();
+            // Fermeture du curseur
+            $q->closeCursor();
+        } catch (PDOException $e) {
+            // Gestion des erreurs PDO
+            $_SESSION['error_message'] = "Erreur lors de la mise à jour de l'engin : " . $e->getMessage();
+        }
+    }
+
+
     public function supprimerTypeEnginId($idVehicule)
     {
         // Préparation de la requête de suppression

@@ -256,3 +256,24 @@ function afficherImageEnTempsReel() {
 document.addEventListener("DOMContentLoaded", function() {
     afficherImageEnTempsReel();
 });
+
+function afficherImage() {
+    const inputPhoto = document.getElementById('photo');
+    const imageApercu = document.getElementById('apercuImage');
+  
+    if (inputPhoto.files && inputPhoto.files[0]) {
+      const lecteur = new FileReader();
+  
+      lecteur.onload = function (e) {
+        imageApercu.src = e.target.result;
+      };
+  
+      lecteur.readAsDataURL(inputPhoto.files[0]);
+    } else {
+      // Gérer les cas où aucun fichier n'est sélectionné (facultatif)
+      imageApercu.src = ""; // Ou un chemin d'image par défaut
+    }
+  }
+  
+  // Appel de la fonction à chaque changement de l'input "photo"
+  document.getElementById('photo').addEventListener('change', afficherImage);

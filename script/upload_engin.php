@@ -3,6 +3,8 @@ require_once '../include/entete.inc.php';
 
 // Vérification si le formulaire a été soumis via la méthode POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $journal = fopen('../log/Journal.log', 'a');
     // Vérification des champs du formulaire
     if (isset($_POST['idTypeEngin'], $_POST['libelleEngin'], $_FILES['photo']) && !empty($_POST['idTypeEngin'])) {
         // Génération d'un identifiant unique pour l'image
@@ -20,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         if ($enginExiste) {
             $_SESSION['error_message'] = "L'engin existe déjà.";
-            header("Location: ../pages/ajout_vehicule.php");
+            header("Location: ../pages/ajout_Vehicule.php");
             exit();
         } else {
             // Préparation des données de l'engin pour l'ajout à la base de données
@@ -30,34 +32,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'Url_Image' => $urlPhoto
             ]);
 
-            // Insertion des données dans la base de données
-            $typeEnginManager->insererTypeEngin($enginData);
+            
 
             // Vérification si le fichier a bien été téléchargé
             if ($_FILES['photo']['error'] === UPLOAD_ERR_OK) {
                 // Téléversement du fichier sur le serveur
                 move_uploaded_file($_FILES['photo']['tmp_name'], $urlPhoto);
+               
+                // Insertion des données dans la base de données
+                $typeEnginManager->insererTypeEngin($enginData);
+                
+                $heure = date('Y-m-d H:i:s');
 
+                // Écrire dans le fichier journal
+                $log_message = "[$heure] L'utilisateur a créé un nouvel objet.\n";
+                $log_message .= "[$heure] ID de l'objet: {$_POST['idTypeEngin']}\n";
+                $log_message .= "[$heure] Libellé de l'objet: {$_POST['libelleEngin']}\n";
+                $log_message .= "[$heure] Chemin de l'objet: {$urlPhoto}\n";
+                fwrite($journal, $log_message);
+                fclose($journal);
                 // Redirection avec un message de succès
                 $_SESSION['success_message'] = "L'engin a été créé.";
-                header("Location: ../pages/ajout_vehicule.php");
+                header("Location: ../pages/ajout_Vehicule.php");
                 exit();
             } else {
                 // Gestion de l'erreur si le fichier n'a pas été correctement téléchargé
                 $_SESSION['error_message'] = "Une erreur s'est produite lors du téléchargement du fichier.";
-                header("Location: ../pages/ajout_vehicule.php");
+                fclose($journal);
+                header("Location: ../pages/ajout_Vehicule.php");
                 exit();
             }
         }
     } else {
         // Gestion de l'erreur si tous les champs du formulaire ne sont pas remplis
         $_SESSION['error_message'] = "Veuillez remplir tous les champs du formulaire.";
-        header("Location: ../pages/ajout_vehicule.php");
+        fclose($journal);
+        header("Location: ../pages/ajout_Vehicule.php");
         exit();
     }
 } else {
     // Redirection si le formulaire n'a pas été soumis via POST
-    header("Location: ../pages/ajout_vehicule.php");
+    fclose($journal);
+    header("Location: ../pages/ajout_Vehicule.php");
     exit();
 }
 

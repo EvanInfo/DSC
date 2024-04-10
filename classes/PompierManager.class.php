@@ -34,6 +34,23 @@ class PompierManager
     }
     
 
+
+    public function chercherMatricule($id){
+        
+        $requete = $this->_db->prepare("SELECT Matricule FROM pompier WHERE Matricule = :id");
+        $requete->bindValue(':id', $id, PDO::PARAM_INT);
+        $requete->execute();
+        //var_dump($requete);
+        if($requete->rowCount() > 0){
+           
+            return true;
+        } else {
+            
+            return false;
+        }
+
+    }
+
     public function setDB(PDO $db)
     {
         $this->_db = $db;

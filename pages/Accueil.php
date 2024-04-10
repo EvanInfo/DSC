@@ -43,6 +43,3 @@ include("../include/entete.inc.php");
       include ("../include/piedDePage.inc.php");
 ?>
 
-</body>
-
-</html>

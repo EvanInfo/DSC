@@ -38,7 +38,7 @@ include("../include/entete.inc.php");
             </div>
         </div>
         <div class="col-md-6">
-                <form id="myForm" action="../script/Update_engin.php" method="post" enctype="multipart/form-data" novalidate>
+                <form id="myForm" action="../script/update_Engin.php" method="post" enctype="multipart/form-data" novalidate>
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <div class="form-group ">
                         <div class="form-group">

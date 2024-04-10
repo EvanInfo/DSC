@@ -14,7 +14,7 @@ include("../include/entete.inc.php");
 
     <div class="row ">
       <div class="col-md-6">
-        <form id="myForm" action="../script/upload_engin.php" method="post" enctype="multipart/form-data" novalidate>
+        <form id="myForm" action="../script/upload_Engin.php" method="post" enctype="multipart/form-data" novalidate>
             <div class="form-group ">
                 <div class="form-group">
                     <label for="idTypeEngin">idTypeEngin</label>

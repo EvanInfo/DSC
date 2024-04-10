@@ -277,3 +277,25 @@ function afficherImage() {
   
   // Appel de la fonction à chaque changement de l'input "photo"
   document.getElementById('photo').addEventListener('change', afficherImage);
+
+// Fonction pour filtrer le journal en temps réel
+function filterTable() {
+    var input, filter, table, tr, tdDateTime, tdMessage, i, txtValueDateTime, txtValueMessage;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("journalBody");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        tdDateTime = tr[i].getElementsByTagName("td")[0]; // Index 0 correspond à la colonne des dates et heures combinées
+        tdMessage = tr[i].getElementsByTagName("td")[1]; // Index 1 correspond à la colonne des messages
+        if (tdDateTime && tdMessage) {
+            txtValueDateTime = tdDateTime.textContent || tdDateTime.innerText;
+            txtValueMessage = tdMessage.textContent || tdMessage.innerText;
+            if (txtValueDateTime.toUpperCase().indexOf(filter) > -1 || txtValueMessage.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}

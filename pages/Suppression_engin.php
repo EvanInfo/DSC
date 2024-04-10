@@ -44,7 +44,7 @@ include("../include/entete.inc.php");
 
 </div>
     <div class="text-center custom-margin-top-1">
-    <form action="../script/suppression_vehicule.php" method="post">
+    <form action="../script/suppression_Vehicule.php" method="post">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
         <button type="submit" class="btn btn-danger">Suppression véhicule</button>
     </form>

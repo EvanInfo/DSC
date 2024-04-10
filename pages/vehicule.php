@@ -41,11 +41,11 @@ include("../include/entete.inc.php");
                           <div class="card-body">
                               <h5 class="card-title"><?php echo $vehicules['Libellé']; ?></h5>
                               <div class="row">
-                                  <form action="Modification_engin.php" method="post">
+                                  <form action="modification_Engin.php" method="post">
                                       <input type="hidden" name="id" value="<?php echo ($vehicules['id']); ?>">
                                       <button type="submit" class="btn btn-secondary">Modifier</button>
                                   </form>
-                                  <form action="Suppression_engin.php" method="post">
+                                  <form action="suppression_Engin.php" method="post">
                                       <input type="hidden" name="id" value="<?php echo ($vehicules['id']); ?>">
                                       <button type="submit" class="btn btn-secondary">Supprimer</button>
                                   </form>

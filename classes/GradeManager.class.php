@@ -21,6 +21,26 @@ class GradeManager
 
         return $gradeInfo;
     }
+    
+    public function getGradeId($id)
+    {
+        $q = $this->_db->prepare('SELECT libellé FROM grade WHERE id = :id');
+        $q->bindValue(':id', $id, PDO::PARAM_INT);
+        $q->execute();
+        
+        // Récupérer le libellé du grade à partir du résultat de la requête
+        $resultat = $q->fetch(PDO::FETCH_ASSOC);
+        
+        // Vérifier si le résultat est non vide
+        if ($resultat) {
+            // Retourner le libellé du grade
+            return $resultat['libellé'];
+        } else {
+            // Retourner un message d'erreur ou une valeur par défaut si aucun résultat n'est trouvé
+            return "Grade introuvable";
+        }
+    }
+
       
     /**
      * Récupère les informations d'une catégorie avec un identifiant spécifié.

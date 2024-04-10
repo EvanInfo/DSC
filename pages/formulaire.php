@@ -6,106 +6,6 @@
 
 
   $erreurs = array(); // Initialiser un tableau pour stocker les erreurs
-
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      try {
-          // Récupération des données du formulaire
-          $matricule = $_POST['matricule'];
-          $date_naissance = $_POST['naissance'];
-          $nom = $_POST['nom'];
-          $prenom = $_POST['prenom'];
-          $sexe = $_POST['sexe']; 
-          $grade = $_POST['Grade'];
-          $telephone = $_POST['tel'];
-          $caserne = $_POST['Caserne'];
-          $type_pompier = $_POST['type_pompier']; 
-
-          // Insertion des données dans la table Pompier
-          $pompier = new Pompier([
-              'Matricule' => $matricule, 
-              'DateNaiss' => $date_naissance, 
-              'Nom' => $nom, 
-              'Prenom' => $prenom, 
-              'Sexe' => $sexe, 
-              'id' => $grade, 
-              'Tel' => $telephone, 
-              'idCaserne' => $caserne
-          ]);
-
-
-          // Si tout se passe bien, insérer dans la base de données
-          $pompierManager->inserer($pompier);
-          
-          if ($type_pompier === 'volontaire'){
-
-              $nomEmployeur = $_POST['nom_employeur'];
-              $prenomEmployeur = $_POST['prenom_employeur'];
-              $telEmployeur = $_POST['tel_employeur'];
-
-              $employeurInfo = $employeurManager->affichageEmployeur();
-        
-              // Variable pour stocker l'ID de l'employeur trouvé
-              $employeurID = 0;
-              
-              // Parcourir les informations des employeurs pour comparer avec les données du formulaire
-                foreach ($employeurInfo as $employeur) {
-                    if ($nomEmployeur === $employeur['Nom'] && $prenomEmployeur === $employeur['Prenom'] && $telEmployeur === $employeur['Tel']) {
-                        // Si les données du formulaire correspondent à une entrée dans la table Employeur, 
-                        // stocker l'ID de l'employeur
-                        $employeurID = $employeur['id'];
-                        // Sortir de la boucle car nous avons trouvé une correspondance
-                        break;
-                    }
-                }
-
-                if ($employeurID === 0){
-                  
-                  $employeur = new Employeur([
-                        'Nom' => $nomEmployeur,
-                        'Prenom' => $prenomEmployeur,
-                        'Tel' => $telEmployeur
-                  ]);
-                  
-                  $employeurManager->insererEmployeur($employeur);
-
-                  $employeurInfo = $employeurManager->affichageEmployeur();
-                  foreach ($employeurInfo as $employeur) {
-                      if ($nomEmployeur === $employeur['Nom'] && $prenomEmployeur === $employeur['Prenom'] && $telEmployeur === $employeur['Tel']) {
-                          // Si les données du formulaire correspondent à une entrée dans la table Employeur, 
-                          // stocker l'ID de l'employeur
-                          $employeurID = $employeur['id'];
-                          // Sortir de la boucle car nous avons trouvé une correspondance
-                          break;
-                      }
-                  }
-                }
-
-                $volontaire = new Volontaire([
-                  'Matricule' => $matricule,
-                  'id'=> $employeurID
-
-                ]);
-
-                $volontaireManager->inserer($volontaire);
-          } else {
-              $pro = new Professionnel(['Matricule' => $matricule]);
-              $professionnelManager->inserer($pro);
-          }
-        
-        header('Location: Accueil.php');
-        exit();
-      } catch (PDOException $e) {
-          
-          $erreurs[] = "Une erreur est survenue lors du traitement de votre demande. Veuillez réessayer plus tard.";
-          //var_dump($e->getMessage());
-      } catch (Exception $e) {
-          // Attrapez toute autre exception non gérée ici
-          $erreurs[] = "Une erreur est survenue: " . $e->getMessage();
-          //var_dump($e->getMessage());
-      }
-
-      //var_dump($erreurs);
-  }
 ?> 
 
  
@@ -124,7 +24,19 @@
                 
               </div>
           </div>
-    <form method="post" id="formulaire">
+      <?php
+        if (isset($_SESSION['success_message'])) {
+          echo '<div class="alert alert-success" role="alert">' . $_SESSION['success_message'] . '</div>';
+          unset($_SESSION['success_message']);
+      }
+    
+        if (isset($_SESSION['erreur'])) {
+            echo '<div class="alert alert-danger">' . $_SESSION['erreur'] . '</div>';
+            // Une fois l'erreur affichée, effacer la variable de session pour ne pas l'afficher à nouveau
+            unset($_SESSION['erreur']);
+        }
+      ?>
+      <form method="post" id="formulaire" action="../script/inscription.php">
       <div class="form-group row">
         <div class="form-group col-md-6">
           <label for="matricule">Matricule</label>
@@ -283,5 +195,4 @@
     <?php
       include ("../include/piedDePage.inc.php");
     ?>
-  </body>
-  </html>
+ 

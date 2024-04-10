@@ -1,0 +1,34 @@
+[2024-04-10 16:36:46] Nouvel utilisateur inscrit.
+[2024-04-10 16:36:46] Matricule: 111111
+[2024-04-10 16:36:46] Nom: Zucchiatti
+[2024-04-10 16:36:46] Prénom: Evan
+[2024-04-10 16:36:46] Date de naissance: 2000-02-25
+[2024-04-10 16:36:46] Sexe: masculin
+[2024-04-10 16:36:46] Grade:lieutenant-colonel
+[2024-04-10 16:36:46] Téléphone: 0620063342
+[2024-04-10 16:36:46] Caserne:Carcassonne
+[2024-04-10 16:36:46] Type de pompier: Volontaire
+[2024-04-10 16:36:46] Nom de l'employeur: Skywalker
+[2024-04-10 16:36:46] Prénom de l'employeur: Anakin
+[2024-04-10 16:36:46] Téléphone de l'employeur: 0585684851
+[2024-04-10 16:38:57] L'utilisateur a créé un nouvel objet.
+[2024-04-10 16:38:57] ID de l'objet: VSR
+[2024-04-10 16:38:57] Libellé de l'objet: véhicule secours routier
+[2024-04-10 16:38:57] Chemin de l'objet: ../Image/vehicule/6616a4813b
+[2024-04-10 16:39:25] L'utilisateur a mis à jour un objet.
+[2024-04-10 16:39:25] ID de l'objet avant la mise à jour: VSR
+[2024-04-10 16:39:25] Libellé de l'objet avant la mise à jour: véhicule secours routier
+[2024-04-10 16:39:25] URL de l'objet avant la mise à jour: ../Image/vehicule/6616a4813b
+[2024-04-10 16:39:25] ID de l'objet après la mise à jour: VSR
+[2024-04-10 16:39:25] Libellé de l'objet après la mise à jour: véhicule secours routier
+[2024-04-10 16:39:25] URL de l'objet après la mise à jour: ../Image/vehicule/6616a49dbc
+[2024-04-10 16:39:36] L'utilisateur a mis à jour un objet.
+[2024-04-10 16:39:36] ID de l'objet avant la mise à jour: VSR
+[2024-04-10 16:39:36] Libellé de l'objet avant la mise à jour: véhicule secours routier
+[2024-04-10 16:39:36] URL de l'objet avant la mise à jour: ../Image/vehicule/6616a49dbc
+[2024-04-10 16:39:36] ID de l'objet après la mise à jour: VSR
+[2024-04-10 16:39:36] Libellé de l'objet après la mise à jour: véhicule secours routier
+[2024-04-10 16:39:36] URL de l'objet après la mise à jour: ../Image/vehicule/6616a4a82f
+[2024-04-10 16:39:39] L'utilisateur a supprimé un objet.
+[2024-04-10 16:39:39] ID de l'objet supprimé: VSR
+[2024-04-10 16:39:39] Chemin de l'objet supprimé: ../Image/vehicule/6616a4a82f

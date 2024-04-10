@@ -130,3 +130,7 @@ body{
     margin: auto; /* Pour centrer horizontalement la zone d'affichage de l'image */
     overflow: hidden; /* Pour cacher tout contenu dépassant de la taille maximale */
 }
+
+.scrollable-table {
+    max-height: 500px; /* Ajustez la hauteur selon vos besoins */
+}

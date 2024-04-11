@@ -1,5 +1,7 @@
 <?php
 include("../include/entete.inc.php");
+if (isset($_SESSION['login']) && $_SESSION['login'] == false ){
+    header('Location: ../pages/connexion.php');}
 ?>
 
 <div class="container custom-margin-top-3">

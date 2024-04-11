@@ -30,9 +30,7 @@ include("../include/entete.inc.php");
     
     <div class="presentation-text text-center">
         <p>Bienvenue sur notre application dédiée à la gestion de l'agenda et des ressources des pompiers</p>
-        <!--<div class="position-absolute ">
-            <img src="../Image/optimus.png" class=" rounded float-right image-petite" alt="">
-        </div>-->
+       
     </div>
 
 

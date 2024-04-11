@@ -1,5 +1,7 @@
 <?php
 include("../include/entete.inc.php");
+if (isset($_SESSION['login']) && $_SESSION['login'] == false ){
+    header('Location: ../pages/connexion.php');}
 ?>
 
 
@@ -28,7 +30,7 @@ include("../include/entete.inc.php");
             }?>
     <?php
       $vehicule =  $typeEnginManager->affichageTypeEngin();
-      //var_dump($vehicule);
+     
     ?>
     <div class="container">
       <div class="row">
@@ -55,17 +57,7 @@ include("../include/entete.inc.php");
                       </div>
                   </div>
               </div>
-          <?php endforeach;
-          /*
-          Débogage du script Update_engin.php
-          $id = $_SESSION['id'];
-          $urlPhoto = $_SESSION['url_photo'];
-          $libelle = $_SESSION['libelle'];
-          
-          // Afficher les valeurs
-          echo "Url Photo : " . $urlPhoto . "<br>";
-          echo "Libelle : " . $libelle;
-          echo "id: " . $id;*/?>
+          <?php endforeach;?>
       </div>
     </div>
 

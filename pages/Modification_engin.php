@@ -1,5 +1,8 @@
 <?php
 include("../include/entete.inc.php");
+
+if (isset($_SESSION['login']) && $_SESSION['login'] == false ){
+    header('Location: ../pages/connexion.php');}
 ?>
 
 
@@ -22,7 +25,7 @@ include("../include/entete.inc.php");
         exit();
     }
      
-      //var_dump($vehicule);
+     
     ?>
     <div class="container">
         <div class="row">

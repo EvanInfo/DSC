@@ -299,3 +299,55 @@ function filterTable() {
         }
     }
 }
+
+// Fonction de vérification des mots de passe pour l'inscription
+function vérificationMotDePasse() {
+    var password1 = document.getElementById('motDePasse1').value;
+    var password2 = document.getElementById('motDePasse2').value;
+
+    if (password1.trim() === '' || password2.trim() === '') {
+        // Au moins un des champs de mot de passe est vide
+        document.getElementById('motDePasse1').classList.remove('is-valid');
+        document.getElementById('motDePasse2').classList.remove('is-valid');
+        document.getElementById('motDePasse1').classList.remove('is-invalid');
+        document.getElementById('motDePasse2').classList.remove('is-invalid');
+        document.getElementById('motDePasse1').nextElementSibling.style.display = 'none'; // Masque le message d'erreur
+    } else if (password1 !== password2) {
+        // Les mots de passe ne correspondent pas
+        document.getElementById('motDePasse1').classList.remove('is-valid');
+        document.getElementById('motDePasse2').classList.remove('is-valid');
+        document.getElementById('motDePasse1').classList.add('is-invalid');
+        document.getElementById('motDePasse2').classList.add('is-invalid');
+        document.getElementById('motDePasse1').nextElementSibling.style.display = 'block'; // Affiche le message d'erreur
+    } else {
+        // Les mots de passe correspondent
+        document.getElementById('motDePasse1').classList.remove('is-invalid');
+        document.getElementById('motDePasse2').classList.remove('is-invalid');
+        document.getElementById('motDePasse1').classList.add('is-valid');
+        document.getElementById('motDePasse2').classList.add('is-valid');
+        document.getElementById('motDePasse1').nextElementSibling.style.display = 'none'; // Masque le message d'erreur
+    }
+}
+
+document.getElementById('motDePasse1').addEventListener('input', vérificationMotDePasse);
+document.getElementById('motDePasse2').addEventListener('input', vérificationMotDePasse);
+
+// Fonction de vérification de l'email pour l'inscription
+function validerEmail(idInput) {
+    var email = document.getElementById(idInput).value;
+    var champInput = document.getElementById(idInput);
+
+    // Expression régulière pour valider l'e-mail
+    var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (regexEmail.test(email)) {
+        champInput.classList.remove("is-invalid");
+        champInput.classList.add("is-valid");
+        return true;
+    } else {
+        champInput.classList.remove("is-valid");
+        champInput.classList.add("is-invalid");
+        return false;
+    }
+}
+document.getElementById('email').addEventListener('input', vérificationMotDePasse);

@@ -6,9 +6,11 @@
 
 
   $erreurs = array(); // Initialiser un tableau pour stocker les erreurs
+  if (isset($_SESSION['login']) && $_SESSION['login'] == false ){
+    header('Location: ../pages/connexion.php');}
 ?> 
 
- 
+
   <div class="container custom-margin-top-3">
     <?php echo generationEntete("Ajout Pompier") ?>
     <div class="jumbotron">
@@ -36,7 +38,7 @@
             unset($_SESSION['erreur']);
         }
       ?>
-      <form method="post" id="formulaire" action="../script/inscription.php">
+      <form method="post" id="formulaire" action="../script/inscriptionPompier.php">
       <div class="form-group row">
         <div class="form-group col-md-6">
           <label for="matricule">Matricule</label>

@@ -52,6 +52,14 @@
           <div class="invalid-feedback">
             Vous devez fournir un email valide.
           </div>
+          <?php
+            if (isset($_SESSION['erreurMail'])) {
+                echo '<div class="alert alert-danger" role="alert">' . $_SESSION['erreurMail'] . '</div>';
+                // Une fois affiché, vous pouvez supprimer le message de la session pour qu'il ne s'affiche plus après un rechargement de la page
+                unset($_SESSION['erreurMail']);
+            }
+
+            ?>
         </div>
        </div>
        <div class="form-group row">

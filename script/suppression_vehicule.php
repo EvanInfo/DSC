@@ -6,7 +6,7 @@ $journal = fopen('../log/Journal.log', 'a');
 
 if ($journal) {
     
-    $heure = date('Y-m-d H:i:s');
+    $heure = date('d-m-Y H:i:s');
 
     // Vérifier si la variable POST contient l'ID de l'objet à supprimer
     if (isset($_POST['id'])) {

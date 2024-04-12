@@ -6,7 +6,7 @@ $journal = fopen('../log/Journal.log', 'a');
 
 if ($journal) {
     
-    $heure = date('Y-m-d H:i:s');
+    $heure = date('d-m-Y H:i:s');
 
     // Vérifier si le formulaire a été soumis via la méthode POST
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {

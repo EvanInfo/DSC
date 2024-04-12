@@ -14,7 +14,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == false ){
       </div>
     </div>
     <div class="text-center">
-      <button type="button" class="btn btn-danger" onclick="window.location.href='Ajout_Vehicule.php'">Ajouter véhicules</button>
+      <button type="button" class="btn btn-danger btn-couleur" onclick="window.location.href='ajout_Vehicule.php'" style="margin-top: 10px;" >Ajouter véhicules</button>
     </div>
     <?php
             if (isset($_SESSION['error_message'])) {
@@ -39,7 +39,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == false ){
               <div class="col-md-4 mt-4">
                   <div class="card-deck">
                       <div class="card bg-light border-dark">
-                          <img class="card-img-top" src="<?php echo $vehicules['Url_Image']; ?>" alt="Photo"/>
+                          <img class="card-img-top card-taille" src="<?php echo $vehicules['Url_Image']; ?>" alt="Photo"/>
                           <div class="card-body">
                               <h5 class="card-title"><?php echo $vehicules['Libellé']; ?></h5>
                               <div class="row">

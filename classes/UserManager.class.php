@@ -68,17 +68,14 @@ class UserManager
 	}
 
 
+	
+
 	public function count()
 	{
 		return $this->_db->query("SELECT COUNT(*) FROM user")->fetchColumn();
 	}
 
-	public function exists($mailUser, $mdpUser)
-	{
-		$q= $this->_db->prepare('SELECT COUNT(*) FROM users WHERE mail = :mail AND mdp = :mdp');
-		$q->execute([':mail'=> $mailUser, ':mdp'=> $mdpUser]);
-		return (bool) $q->fetchColumn();
-	}
+	
 
 	public function setDb(PDO $db)
 	{

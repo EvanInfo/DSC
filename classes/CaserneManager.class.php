@@ -11,7 +11,7 @@ class CaserneManager
 
     public function getCaserne()
     {
-        $q = $this->_db->prepare('SELECT id, Nom FROM Caserne');
+        $q = $this->_db->prepare('SELECT * FROM Caserne');
         $q->execute();
 
         $CaserneInfo = $q->fetchAll(PDO::FETCH_ASSOC);

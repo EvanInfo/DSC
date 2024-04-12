@@ -97,12 +97,15 @@ body{
 
 .navbar {
     min-height: 80px; /* Modifier la hauteur selon vos besoins */
+    background-color: #b30505;
 }
 
 .entete-page-color{
     background-color: #E5E8EB;
     background-size: cover;
     width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
 }
 .entete-page{
     margin-top: -50px;
@@ -120,6 +123,10 @@ body{
 .champLibelleEngin{
     width: 350px;
 }
+.numeroEngin{
+    width: 500px;
+}
+
 
 .bordure-none {
     border: none !important;
@@ -133,4 +140,24 @@ body{
 
 .scrollable-table {
     max-height: 500px; /* Ajustez la hauteur selon vos besoins */
+}
+
+.card-taille{
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.cardTailleGestionVehicule{
+    height: 200px; 
+    width: 300px; 
+    object-fit: cover; 
+}
+.btn-couleur{
+    background-color: #b30505;
+}
+
+.gestionVehiculeForm {
+    background-color: #E5E8EB;
+    border-radius: 10px; 
+    padding: 20px; 
 }

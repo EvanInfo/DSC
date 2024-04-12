@@ -42,8 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Insertion des données dans la base de données
                 $typeEnginManager->insererTypeEngin($enginData);
                 
-                $heure = date('Y-m-d H:i:s');
-
+                $heure = date('d-m-Y H:i:s');
+                
                 // Écrire dans le fichier journal
                 $log_message = "[$heure] L'utilisateur a créé un nouvel objet.\n";
                 $log_message .= "[$heure] ID de l'objet: {$_POST['idTypeEngin']}\n";

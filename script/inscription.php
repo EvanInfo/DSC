@@ -9,7 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../pages/inscription.php");
             exit();
         }
-
+        if ($userManager->getUser($_POST['mail']))
+        {
+            $_SESSION['erreurMail'] = "Le mail existe déjà.";
+            header("Location: ../pages/inscription.php");
+            exit();
+        }
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
         $email = $_POST['mail'];
@@ -27,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($journal) {
             // Récupération de l'heure actuelle
-            $heure = date('Y-m-d H:i:s');
+            $heure = date('d-m-Y H:i:s');
 
             // Construction du message de journal
             $log_message = "[$heure] Nouvel utilisateur inscrit.\n";

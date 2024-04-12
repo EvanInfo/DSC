@@ -97,7 +97,7 @@
 
         if ($journal) {
             // Récupération de l'heure actuelle
-            $heure = date('Y-m-d H:i:s');
+            $heure = date('d-m-Y H:i:s');
 
             // Construction du message de journal
             $log_message = "[$heure] Nouvel utilisateur inscrit.\n";

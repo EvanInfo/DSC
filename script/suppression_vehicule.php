@@ -22,7 +22,7 @@ if ($journal) {
             $typeEnginManager->supprimerTypeEnginId($id);
 
             // Écrire dans le fichier journal
-            $log_message = "[$heure] L'utilisateur a supprimé un objet.\n";
+            $log_message = "[$heure] {$_SESSION['prenomUtilisateur']} {$_SESSION['nomUtilisateur']} a supprimé un objet.\n";
             $log_message .= "[$heure] ID de l'objet supprimé: {$id}\n";
             $log_message .= "[$heure] Chemin de l'objet supprimé: {$enginUrl}\n";
             fwrite($journal, $log_message);

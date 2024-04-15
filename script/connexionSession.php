@@ -10,8 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       session_start ();
       $_SESSION['login'] = true;
       $_SESSION['TypeUtilisateur'] = $utilisateur['type'];
-      /*$_SESSION['NomUtilisateur'] = $utilisateur->getPrenom();
-      $_SESSION['idUser'] = $manager->getIdUser($_POST['mail']);*/
+      $_SESSION['prenomUtilisateur'] = $utilisateur['prenom'];
+      $_SESSION['nomUtilisateur'] = $utilisateur['nom'];
       header('Location: ../pages/accueil.php');
     }else{
       //echo "<div class='container'>";

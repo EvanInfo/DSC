@@ -22,9 +22,9 @@ function generationEntete(string $titre): string
 function generationOptions(string $titre,  string $libelle,string $url_image="SDIS.jpeg", string $lien='#', string $titre_boutons="Valider"): string
 {
   return '
-  <div class="col">
+  <div class="col col-espace">
         <div class="card" style="width: 18rem;">
-          <img src="../Image/gestion_vehicule/'. $url_image. '" class="card-img-top" alt="'.$libelle.'">
+          <img src="../Image/gestion_vehicule/'. $url_image. '" class="card-img-top card-img-taille" alt="'.$libelle.'">
           <div class="card-body">
             <h5 class="card-title">'. $titre .'</h5>
             <p class="card-text">'. $libelle .'</p>

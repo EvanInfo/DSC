@@ -31,12 +31,12 @@ class Engin
 		return $this->_Numéro;
 	}
 
-	public function getCaserneId()
+	public function getCaserne_Id()
 	{
 		return $this->_Caserne_id;
 	}
 
-    public function getTypeEnginId()
+    public function getType_Engin_Id()
     {
         return $this->_Type_Engin_id;
     }
@@ -55,7 +55,7 @@ class Engin
 	}
 
 	
-	public function setCaserneId($Caserne_id)
+	public function setCaserne_Id($Caserne_id)
 	{
 		$Caserne_id = (int) $Caserne_id;
 		if ($Caserne_id > 0)
@@ -64,9 +64,9 @@ class Engin
 		}	
 	}
 
-    public function setTypeEnginId($Type_Engin_id)
+    public function setType_Engin_Id($Type_Engin_id)
     {
-        // Vérifie si la valeur contient au moins une lettre et au plus 25 lettres
+
         if (preg_match('/^[A-Za-z]{1,5}$/', $Type_Engin_id)) {
             $this->_Type_Engin_id = $Type_Engin_id;
         } else {

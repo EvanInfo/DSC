@@ -56,13 +56,13 @@ if ($journal) {
             }
 
             // Écrire dans le fichier journal les détails de la mise à jour
-            $log_message = "[$heure] L'utilisateur a mis à jour un objet.\n";
-            $log_message .= "[$heure] ID de l'objet avant la mise à jour: {$idAvant}\n";
-            $log_message .= "[$heure] Libellé de l'objet avant la mise à jour: {$libelleAvant}\n";
-            $log_message .= "[$heure] URL de l'objet avant la mise à jour: {$urlPhotoAvant}\n";
-            $log_message .= "[$heure] ID de l'objet après la mise à jour: {$id}\n";
-            $log_message .= "[$heure] Libellé de l'objet après la mise à jour: {$libelle}\n";
-            $log_message .= "[$heure] URL de l'objet après la mise à jour: {$urlPhoto}\n";
+            $log_message = "[$heure] {$_SESSION['prenomUtilisateur']} {$_SESSION['nomUtilisateur']} a mis à jour un engin.\n";
+            $log_message .= "[$heure] ID de l'engin avant la mise à jour: {$idAvant}\n";
+            $log_message .= "[$heure] Libellé de l'engin avant la mise à jour: {$libelleAvant}\n";
+            $log_message .= "[$heure] URL de l'engin avant la mise à jour: {$urlPhotoAvant}\n";
+            $log_message .= "[$heure] ID de l'engin après la mise à jour: {$id}\n";
+            $log_message .= "[$heure] Libellé de l'engin après la mise à jour: {$libelle}\n";
+            $log_message .= "[$heure] URL de l'engin après la mise à jour: {$urlPhoto}\n";
             fwrite($journal, $log_message);
 
             // Redirection vers la page des véhicules avec un message de succès
@@ -73,7 +73,7 @@ if ($journal) {
         }
     } else {
         // Gérer l'erreur si l'ID de l'objet n'est pas correct ou si le formulaire n'a pas été soumis via POST
-        $_SESSION['error_message'] = "L'ID de l'objet n'est pas correct ou le formulaire n'a pas été soumis.";
+        $_SESSION['error_message'] = "L'ID de l'engin n'est pas correct ou le formulaire n'a pas été soumis.";
         fclose($journal);
         header("Location: ../pages/vehicule.php");
         exit();

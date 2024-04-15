@@ -45,10 +45,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $heure = date('d-m-Y H:i:s');
                 
                 // Écrire dans le fichier journal
-                $log_message = "[$heure] L'utilisateur a créé un nouvel objet.\n";
-                $log_message .= "[$heure] ID de l'objet: {$_POST['idTypeEngin']}\n";
-                $log_message .= "[$heure] Libellé de l'objet: {$_POST['libelleEngin']}\n";
-                $log_message .= "[$heure] Chemin de l'objet: {$urlPhoto}\n";
+                $log_message = "[$heure] {$_SESSION['prenomUtilisateur']} {$_SESSION['nomUtilisateur']} a créé un nouvel engin.\n";
+                $log_message .= "[$heure] ID de l'engin: {$_POST['idTypeEngin']}\n";
+                $log_message .= "[$heure] Libellé de l'engin: {$_POST['libelleEngin']}\n";
+                $log_message .= "[$heure] Chemin de l'engin: {$urlPhoto}\n";
                 fwrite($journal, $log_message);
                 fclose($journal);
                 // Redirection avec un message de succès

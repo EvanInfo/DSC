@@ -26,12 +26,12 @@ class Grade
 
 	public function getId()
 	{
-		return $this->_idCategorie;
+		return $this->_id;
 	}
 
 	public function getlibelle()
 	{
-		return $this->_libelle;
+		return $this->_libellé;
 	}
 
 	
@@ -42,7 +42,7 @@ class Grade
 		$id = (int) $id;
 		if ($id > 0)
 		{
-			$this->_idCategorie = $id;
+			$this->_id = $id;
 		}	
 	}
 
@@ -51,7 +51,7 @@ class Grade
 	{
 		if (is_string($libelle))
 		{
-			$this->_libelle = $libelle;
+			$this->_libellé = $libelle;
 		}	
 	}
 

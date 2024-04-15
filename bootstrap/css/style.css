@@ -147,11 +147,12 @@ body{
     object-fit: cover; 
 }
 
-.cardTailleGestionVehicule{
+.cardTailleGestionVehicule {
     height: 200px; 
-    width: 300px; 
-    object-fit: cover; 
+    width: 100%;  
+    object-fit: cover;  
 }
+
 .btn-couleur{
     background-color: #b30505;
 }
@@ -160,4 +161,14 @@ body{
     background-color: #E5E8EB;
     border-radius: 10px; 
     padding: 20px; 
+}
+
+/* Taille des images pour la fonction generationOptions*/
+.card-img-taille{
+    height: 200px; /* Définir la hauteur souhaitée */
+    object-fit: cover; /* Ajuster l'image pour remplir complètement le conteneur */
+}
+
+.col-espace{
+    margin-bottom: 30px;
 }

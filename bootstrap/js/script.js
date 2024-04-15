@@ -351,3 +351,12 @@ function validerEmail(idInput) {
     }
 }
 document.getElementById('email').addEventListener('input', vérificationMotDePasse);
+
+// Fonction pour changer l'image lors de la sélection d'une option dans gestion des véhicules
+function changerImage() {
+    var selectElement = document.getElementById('vehicule');
+    var selectedOption = selectElement.options[selectElement.selectedIndex];
+    var cheminImage = selectedOption.getAttribute('cheminImage');
+    document.getElementById('apercuImage').src = cheminImage;
+}
+document.getElementById('vehicule').addEventListener('change', changerImage);

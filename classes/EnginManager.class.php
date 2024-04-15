@@ -11,16 +11,20 @@ class EnginManager
     public function insererEngin(Engin $engin)
     {
         // Vérifier si tous les attributs requis sont définis
-        if (!$engin->getNuméro() || !$engin->getCaserneId() || !$engin->getTypeEnginId()) {
+        if (!$engin->getNuméro() || !$engin->getCaserne_Id() || !$engin->getType_Engin_Id()) {
             throw new Exception("Tous les attributs requis doivent être définis avant d'insérer dans la base de données.");
+            var_dump($engin->getNuméro());
+            var_dump($engin->getCaserne_Id());
+            var_dump($engin->getType_Engin_Id());
+            
         }
         // Préparation de la requête d'insertion
         $requete = $this->_db->prepare("INSERT INTO engin (Numéro, Caserne_id, Type_Engin_id) VALUES (:numero, :caserne_id, :type_engin_id)");
 
         // Liaison des valeurs avec les paramètres de la requête
         $requete->bindValue(':numero', $engin->getNuméro());
-        $requete->bindValue(':caserne_id', $engin->getCaserneId());
-        $requete->bindValue(':type_engin_id', $engin->getTypeEnginId());
+        $requete->bindValue(':caserne_id', $engin->getCaserne_Id());
+        $requete->bindValue(':type_engin_id', $engin->getType_Engin_Id());
         
         // Exécution de la requête
         $requete->execute();
@@ -39,6 +43,36 @@ class EnginManager
 
         return $EmployeurInfo;
     }
+
+
+
+    public function affectionId($vehiculeId, $caserneId, $numeroEngin)
+    {
+        $q = $this->_db->prepare('SELECT COUNT(*) FROM engin WHERE Type_Engin_id = :vehicule_id AND Caserne_id = :caserne_id AND Numéro = :numero_engin');
+        $q->bindValue(':vehicule_id', $vehiculeId);
+        $q->bindValue(':caserne_id', $caserneId);
+        $q->bindValue(':numero_engin', $numeroEngin);
+        $q->execute();
+
+        $rowCount = $q->fetchColumn();
+
+        // Fermeture du curseur
+        $q->closeCursor();
+
+        return $rowCount > 0;
+    }
+
+    public function suppressionId($vehiculeId, $caserneId, $numeroEngin)
+    {
+        $q = $this->_db->prepare('DELETE FROM engin WHERE Type_Engin_id = :vehicule_id AND Caserne_id = :caserne_id AND Numéro = :numero_engin');
+        $q->bindValue(':vehicule_id', $vehiculeId);
+        $q->bindValue(':caserne_id', $caserneId);
+        $q->bindValue(':numero_engin', $numeroEngin);
+        $q->execute();
+        // Fermeture du curseur
+        $q->closeCursor();    
+    }
+
 
     public function setDB(PDO $db)
     {

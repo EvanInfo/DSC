@@ -2,9 +2,10 @@
 include("../include/entete.inc.php");
 
 if (isset($_SESSION['login']) && $_SESSION['login'] == false ){
-    header('Location: ../pages/connexion.php');}
+    header('Location: ../pages/connexion.php');
+    exit; // Assurez-vous de terminer le script après une redirection
+}
 ?>
-
 
 <div class="container custom-margin-top-3 ">
     <div class=" entete-page-color">
@@ -15,37 +16,44 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == false ){
       </div>
     </div>
     
+    <form action="../script/suppressionAffectation.php" method="post">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="form-group text-center custom-margin-top-1">
+                        <label for="inputState">Véhicule</label>
+                        <select id="vehicule" class="form-control" name="vehicule" onchange="selectionAffectation()" required>
+                            <option value="" disabled selected>Choisissez une affectation</option>
+                            <?php
+                            $listeAffectation = $enginManager->affichageEngin();
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="form-group text-center custom-margin-top-1">
-                    <label for="inputState">Vehicule</label>
-                    <select id="vehicule" class="form-control " name="vehicule"  required>
-                        <option value="" disabled selected>Choisissez une affectation</option>
-                        <?php
-                        $listeAffectation = $enginManager->affichageEngin();
-
-                        // Générer le menu HTML
-                        foreach ($listeAffectation as $affectation) {
-                            echo '<option value="' . $affectation['Numéro'] . '">' . $affectation['Type_Engin_id'] . '</option>';
-                        }
-                        ?>
-                    </select>
-
-                   
+                            // Générer le menu HTML
+                            foreach ($listeAffectation as $affectation) {
+                                echo '<option value="' . $affectation['Numéro'] .'|' . $affectation['Type_Engin_id'] . '|' . $affectation['Caserne_id'] . '">' . "Véhicule de type: ". $affectation['Type_Engin_id'] ." ,Immatriculer: ". $affectation['Numéro']." ,Caserne: ". $caserneManager->getCaserneId($affectation['Caserne_id']). '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                        <input type="hidden" id="numero" name="numero">
+                        <input type="hidden" id="typeEnginId" name="typeEnginId">
+                        <input type="hidden" id="caserneId" name="caserneId">
                 </div>
             </div>
         </div>
-    </div>
-
-</div>
-    <div class="text-center custom-margin-top-1">
-    <form action="../script/suppression_Vehicule.php" method="post">
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
-        <button type="submit" class="btn btn-danger">Suppression véhicule</button>
+        
+        <div class="text-center custom-margin-top-1">
+            <button type="submit" class="btn btn-danger">Suppression véhicule</button>
+        </div>
     </form>
-    </div>
+    <?php
+    if (isset($_SESSION['success_message'])) {
+        echo '<div class="alert alert-success" role="alert">' . $_SESSION['success_message'] . '</div>';
+        // Une fois affiché, vous pouvez supprimer le message de la session pour qu'il ne s'affiche plus après un rechargement de la page
+        unset($_SESSION['success_message']);
+    }?>
+    
+</div>
+
 <?php
     include ("../include/piedDePage.inc.php");
 ?>

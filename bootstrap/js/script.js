@@ -360,3 +360,21 @@ function changerImage() {
     document.getElementById('apercuImage').src = cheminImage;
 }
 document.getElementById('vehicule').addEventListener('change', changerImage);
+
+//Fonction pour récupérer les données pour la suppression des affectation de véhicule
+function selectionAffectation() {
+    var selectedOption = document.getElementById('vehicule').options[document.getElementById('vehicule').selectedIndex];
+    var selectedValue = selectedOption.value;
+    var values = selectedValue.split('|'); // Séparation des valeurs par le caractère '|'
+    var numero = values[0];
+    var typeEnginId = values[1];
+    var caserneId = values[2];
+
+    // Assignation des valeurs aux champs de formulaire cachés
+    document.getElementById('numero').value = numero;
+    document.getElementById('typeEnginId').value = typeEnginId;
+    document.getElementById('caserneId').value = caserneId;
+
+}
+
+document.getElementById('vehicule').addEventListener('change', selectionAffectation);

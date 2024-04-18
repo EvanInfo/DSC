@@ -47,7 +47,38 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == true && $_SESSION['TypeUt
                 </tbody>
             </table>
         </div>
+                 
+        <h2>Ajout caserne</h2>
+            <form method="post" id="formulaire" action="../script/ajoutCaserne.php">
+            <div class="form-group row">
+                <div class="form-group col-md-6">
+                    <label for="id">Id Caserne</label>
+                    <input type="number" class="form-control" name="id" id="id" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="nom">Nom caserne</label>
+                    <input type="text" class="form-control" name="nom" id="nom" required>
+                </div>
+                <div class="form-group col-md-12 text-center">
+                    <input type="submit" value="Valider" class="btn btn-primary" name="valider" id="boutton" />  
+                </div>
+            </div>
+            </form>
+            <?php
+                if (isset($_SESSION['error_message'])) {
+                    echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_message'] . '</div>';
+                    // Une fois affiché, vous pouvez supprimer le message de la session pour qu'il ne s'affiche plus après un rechargement de la page
+                    unset($_SESSION['error_message']);
+                }
+                if (isset($_SESSION['success_message'])) {
+                    echo '<div class="alert alert-success" role="alert">' . $_SESSION['success_message'] . '</div>';
+                    // Une fois affiché, vous pouvez supprimer le message de la session pour qu'il ne s'affiche plus après un rechargement de la page
+                    unset($_SESSION['success_message']);
+                }
+            ?>
     </div>
+
+
     <?php
 } else {
     header('Location: ../pages/accueil.php');

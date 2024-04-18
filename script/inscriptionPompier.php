@@ -21,7 +21,7 @@
         $telephone = $_POST['tel'];
         $caserne = $_POST['Caserne'];
         $type_pompier = $_POST['type_pompier']; 
-
+        $dateActuelle = date('Y-m-d');
         // Insertion des données dans la table Pompier
         $pompier = new Pompier([
             'Matricule' => $matricule, 
@@ -30,14 +30,19 @@
             'Prenom' => $prenom, 
             'Sexe' => $sexe, 
             'id' => $grade, 
-            'Tel' => $telephone, 
-            'idCaserne' => $caserne
+            'Tel' => $telephone
         ]);
 
-
+        $affectation = new Affectation([
+            'Date' => $dateActuelle,
+            'Matricule' => $matricule,
+            'id' => $caserne
+        ]);
+        
         // Si tout se passe bien, insérer dans la base de données
         $pompierManager->inserer($pompier);
-        
+        $affactationManager->add($affectation);
+
         if ($type_pompier === 'volontaire'){
 
             $nomEmployeur = $_POST['nom_employeur'];

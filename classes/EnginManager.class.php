@@ -13,9 +13,6 @@ class EnginManager
         // Vérifier si tous les attributs requis sont définis
         if (!$engin->getNuméro() || !$engin->getCaserne_Id() || !$engin->getType_Engin_Id()) {
             throw new Exception("Tous les attributs requis doivent être définis avant d'insérer dans la base de données.");
-            var_dump($engin->getNuméro());
-            var_dump($engin->getCaserne_Id());
-            var_dump($engin->getType_Engin_Id());
             
         }
         // Préparation de la requête d'insertion

@@ -33,7 +33,19 @@ class PompierManager
         $requete->execute($valeurs);
     }
     
+    public function getPompier(){
+        
+        $requete = $this->_db->prepare("SELECT * FROM pompier");
+        $requete->execute();
+        //var_dump($requete);
+        $PompierInfo = $requete->fetchAll(PDO::FETCH_ASSOC);
 
+        // Fermeture du curseur
+        $requete->closeCursor();
+
+        return $PompierInfo;
+
+    }
 
     public function chercherMatricule($id){
         

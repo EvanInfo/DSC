@@ -29,6 +29,7 @@
   $enginManager = new EnginManager($db);
   $typeEnginManager = new TypeEnginManager($db);
   $userManager = new UserManager($db);
+  $affactationManager = new AffectationManager($db);
 
   /*if (isset($_POST['deconnexion']))
   {

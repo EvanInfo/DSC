@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: dsc
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.28-MariaDB
+-- Server version	5.5.5-10.4.32-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,7 +26,6 @@ CREATE TABLE `engin` (
   `Numéro` int(11) NOT NULL,
   `Caserne_id` int(11) NOT NULL,
   `Type_Engin_id` varchar(255) NOT NULL,
-  `Url_Image` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Numéro`,`Caserne_id`,`Type_Engin_id`),
   KEY `Caserne_id` (`Caserne_id`),
   KEY `Type_Engin_id` (`Type_Engin_id`),
@@ -41,7 +40,7 @@ CREATE TABLE `engin` (
 
 LOCK TABLES `engin` WRITE;
 /*!40000 ALTER TABLE `engin` DISABLE KEYS */;
-INSERT INTO `engin` VALUES (1,1,'EPA',NULL),(2,1,'EPA',NULL),(3,2,'FPT',NULL),(4,2,'VSAV',NULL);
+INSERT INTO `engin` VALUES (1,1,'EPA'),(2,1,'EPA'),(6,2,'EPA');
 /*!40000 ALTER TABLE `engin` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-03 12:40:36
+-- Dump completed on 2024-04-19 17:08:30

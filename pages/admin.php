@@ -76,6 +76,37 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == true && $_SESSION['TypeUt
                     unset($_SESSION['success_message']);
                 }
             ?>
+        <h2>Suppression caserne</h2>
+            <form method="post" id="formulaire" action="../script/suppressionCaserne.php">
+                <div class="form-group row">
+                    
+                    <label for="inputState">Caserne</label>
+                    <select id="Caserne" class="form-control " name="Caserne" oninput="validateCaserne()" required>
+                        <option value="" disabled selected>Choisissez une caserne</option>
+                        <?php
+                        $listeCaserne = $caserneManager->getCaserne();
+
+                        // Générer le menu HTML
+                        foreach ($listeCaserne as $caserne) {
+                            echo '<option value="' . $caserne['id'] . '">' . $caserne['Nom'] . '</option>';
+                        }
+                        ?>
+                    </select>
+                    <div class="form-group col-md-12 custom-margin-top-1 text-center">
+                        <input type="submit" value="Valider" class="btn btn-primary" name="valider" id="boutton" />  
+                    </div>
+                </div>
+            </form>
+            <?php
+                if (isset($_SESSION['error_caserne'])) {
+                    echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_caserne'] . '</div>';
+                    unset($_SESSION['error_caserne']);
+                }
+                if (isset($_SESSION['success_Caserne'])) {
+                    echo '<div class="alert alert-success" role="alert">' . $_SESSION['success_Caserne'] . '</div>';
+                    unset($_SESSION['success_Caserne']);
+                }
+            ?>
     </div>
 
 

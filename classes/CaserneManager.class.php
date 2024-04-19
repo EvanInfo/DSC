@@ -97,6 +97,16 @@ class CaserneManager
             return "Caserne introuvable";
         }
     }
+
+    public function suppressionCaserne($id)
+    {
+        $q = $this->_db->prepare('DELETE FROM caserne WHERE id = :id');
+        $q->bindValue(':id', $id, PDO::PARAM_INT);
+        $q->execute();
+
+    }
+
+
     public function setDB(PDO $db)
     {
         $this->_db = $db;

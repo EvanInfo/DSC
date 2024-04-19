@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: dsc
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.28-MariaDB
+-- Server version	5.5.5-10.4.32-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -40,7 +40,7 @@ CREATE TABLE `affectation` (
 
 LOCK TABLES `affectation` WRITE;
 /*!40000 ALTER TABLE `affectation` DISABLE KEYS */;
-INSERT INTO `affectation` VALUES ('1984-03-10',986995,1),('1980-02-12',986995,2),('2001-07-12',986995,3),('2005-05-14',986995,3);
+INSERT INTO `affectation` VALUES ('1984-03-10',986995,1),('1980-02-12',986995,2),('2001-07-12',986995,3),('2005-05-14',986995,3),('2024-04-18',789456,4);
 /*!40000 ALTER TABLE `affectation` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-03 12:40:35
+-- Dump completed on 2024-04-19 17:08:29

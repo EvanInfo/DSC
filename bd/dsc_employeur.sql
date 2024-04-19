@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: dsc
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.28-MariaDB
+-- Server version	5.5.5-10.4.32-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,7 +28,7 @@ CREATE TABLE `employeur` (
   `Prenom` varchar(255) DEFAULT NULL,
   `Tel` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `employeur` (
 
 LOCK TABLES `employeur` WRITE;
 /*!40000 ALTER TABLE `employeur` DISABLE KEYS */;
-INSERT INTO `employeur` VALUES (3,'VERSE','Alain','0676542431'),(4,'NALINE','André','0454245142'),(5,'ZOLE','Camille','0676524156'),(7,'Kenobi','Obi-wan','0664548650'),(8,'Sheev','Palpatine','0525165584');
+INSERT INTO `employeur` VALUES (3,'VERSE','Alain','0676542431'),(4,'NALINE','André','0454245142'),(5,'ZOLE','Camille','0676524156'),(7,'Kenobi','Obi-wan','0664548650'),(8,'Sheev','Palpatine','0525165584'),(9,'Zucchiatti','Evan','0620063342'),(10,'Zucchiatt','Eva','0620063342'),(11,'Skywalker','Anakin','0585684851');
 /*!40000 ALTER TABLE `employeur` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-03 12:40:36
+-- Dump completed on 2024-04-19 17:08:31

@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: dsc
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.28-MariaDB
+-- Server version	5.5.5-10.4.32-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `type_engin`;
 CREATE TABLE `type_engin` (
   `id` varchar(255) NOT NULL,
   `Libellé` varchar(255) DEFAULT NULL,
+  `Url_Image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -35,7 +36,7 @@ CREATE TABLE `type_engin` (
 
 LOCK TABLES `type_engin` WRITE;
 /*!40000 ALTER TABLE `type_engin` DISABLE KEYS */;
-INSERT INTO `type_engin` VALUES ('EPA','échelle pivotante automatique'),('FPT','fourgon pompe-tonne'),('VSAV','véhicule de secours aux victimes');
+INSERT INTO `type_engin` VALUES ('EPA','échelle pivotante automatique','../Image/vehicule/6613e64586'),('FPT','Fourgon Pompe-tonne','../Image/vehicule/66159a98d2'),('VSAV','véhicule de secours aux victimes','../Image/vehicule/6613e45258');
 /*!40000 ALTER TABLE `type_engin` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-03 12:40:35
+-- Dump completed on 2024-04-19 17:08:30

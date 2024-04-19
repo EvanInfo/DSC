@@ -14,8 +14,8 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == true ) {
 
     <div class="container mt-5">
         <h1>Pompier</h1>
-        <div class="table-responsive">
-            <table class="table table-striped">
+        <div class="table-responsive scrollable-table">
+            <table class="table table-striped ">
                 <thead>
                     <tr>
                         <th>Matricule</th>

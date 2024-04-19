@@ -29,7 +29,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == false ){
             <div class="form-group ">
                 <div class="form-group ">
                     <label for="photo">Photo</label>
-                    <input type="file" name="photo" id="photo" accept="image/*" class="photo bordure-none form-control" oninput="afficherImageEnTempsReel()" required>
+                    <input type="file" name="photo" id="photo" accept="image/png, image/jpeg, image/jpg" class="photo bordure-none form-control" oninput="afficherImageEnTempsReel()" required>
                     <div class="invalid-feedback">
                         Veuillez sélectionner une image.
                     </div>

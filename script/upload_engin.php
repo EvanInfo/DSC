@@ -32,7 +32,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'Url_Image' => $urlPhoto
             ]);
 
-            
+            // Vérification du type MIME du fichier
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            $mime = finfo_file($finfo, $_FILES['photo']['tmp_name']);
+            finfo_close($finfo);
+
+            // Liste des types MIME autorisés
+            $typesMIMEAutorises = array('image/png', 'image/jpeg', 'image/jpg');
+
+            if (!in_array($mime, $typesMIMEAutorises)) {
+                $_SESSION['error_message'] = "Le type de fichier n'est pas autorisé. Veuillez télécharger une image PNG ou JPEG.";
+                fclose($journal);
+                header("Location: ../pages/ajout_Vehicule.php");
+                exit();
+            }
 
             // Vérification si le fichier a bien été téléchargé
             if ($_FILES['photo']['error'] === UPLOAD_ERR_OK) {

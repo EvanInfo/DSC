@@ -30,7 +30,7 @@ CREATE TABLE `user` (
   `mdp` varchar(45) DEFAULT NULL,
   `type` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Zucchiatti','Evan','evanzucchiatti1@gmail.com','4bf6d40d762936d7042b942f66690e4e','utilisateur'),(2,'Zucchiatti','Evan','admin@gmail.com','3e6782319ee9f75698c30fcee84c8992','admin');
+INSERT INTO `user` VALUES (2,'Zucchiatti','Evan','admin@gmail.com','3e6782319ee9f75698c30fcee84c8992','admin'),(16,'Premier','Utilisateur','utilisateur@gmail.com','b056491b9efe90f3dcf3f8881e3adc0c','utilisateur');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-19 17:08:30
+-- Dump completed on 2024-04-19 17:24:28

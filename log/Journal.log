@@ -1,75 +1,3 @@
-[2024-04-10 16:36:46] Nouvel utilisateur inscrit.
-[2024-04-10 16:36:46] Matricule: 111111
-[2024-04-10 16:36:46] Nom: Zucchiatti
-[2024-04-10 16:36:46] Prénom: Evan
-[2024-04-10 16:36:46] Date de naissance: 2000-02-25
-[2024-04-10 16:36:46] Sexe: masculin
-[2024-04-10 16:36:46] Grade:lieutenant-colonel
-[2024-04-10 16:36:46] Téléphone: 0620063342
-[2024-04-10 16:36:46] Caserne:Carcassonne
-[2024-04-10 16:36:46] Type de pompier: Volontaire
-[2024-04-10 16:36:46] Nom de l'employeur: Skywalker
-[2024-04-10 16:36:46] Prénom de l'employeur: Anakin
-[2024-04-10 16:36:46] Téléphone de l'employeur: 0585684851
-[2024-04-10 16:38:57] L'utilisateur a créé un nouvel objet.
-[2024-04-10 16:38:57] ID de l'objet: VSR
-[2024-04-10 16:38:57] Libellé de l'objet: véhicule secours routier
-[2024-04-10 16:38:57] Chemin de l'objet: ../Image/vehicule/6616a4813b
-[2024-04-10 16:39:25] L'utilisateur a mis à jour un objet.
-[2024-04-10 16:39:25] ID de l'objet avant la mise à jour: VSR
-[2024-04-10 16:39:25] Libellé de l'objet avant la mise à jour: véhicule secours routier
-[2024-04-10 16:39:25] URL de l'objet avant la mise à jour: ../Image/vehicule/6616a4813b
-[2024-04-10 16:39:25] ID de l'objet après la mise à jour: VSR
-[2024-04-10 16:39:25] Libellé de l'objet après la mise à jour: véhicule secours routier
-[2024-04-10 16:39:25] URL de l'objet après la mise à jour: ../Image/vehicule/6616a49dbc
-[2024-04-10 16:39:36] L'utilisateur a mis à jour un objet.
-[2024-04-10 16:39:36] ID de l'objet avant la mise à jour: VSR
-[2024-04-10 16:39:36] Libellé de l'objet avant la mise à jour: véhicule secours routier
-[2024-04-10 16:39:36] URL de l'objet avant la mise à jour: ../Image/vehicule/6616a49dbc
-[2024-04-10 16:39:36] ID de l'objet après la mise à jour: VSR
-[2024-04-10 16:39:36] Libellé de l'objet après la mise à jour: véhicule secours routier
-[2024-04-10 16:39:36] URL de l'objet après la mise à jour: ../Image/vehicule/6616a4a82f
-[2024-04-10 16:39:39] L'utilisateur a supprimé un objet.
-[2024-04-10 16:39:39] ID de l'objet supprimé: VSR
-[2024-04-10 16:39:39] Chemin de l'objet supprimé: ../Image/vehicule/6616a4a82f
-[2024-04-11 20:19:48] Nouvel utilisateur inscrit.
-[2024-04-11 20:19:48] Nom: Skywalker
-[2024-04-11 20:19:48] Prénom: Anakin
-[2024-04-11 20:19:48] Email: evanzucchiatti63@gmail.com
-[2024-04-11 20:19:48] Type:utilisateur
-[2024-04-11 20:20:20] Nouvel utilisateur inscrit.
-[2024-04-11 20:20:20] Nom: Skywalker
-[2024-04-11 20:20:20] Prénom: Anakin
-[2024-04-11 20:20:20] Email: evanzucchiatti63@gmail.com
-[2024-04-11 20:20:20] Type:utilisateur
-[2024-04-11 20:22:21] Nouvel utilisateur inscrit.
-[2024-04-11 20:22:21] Nom: Skywalker
-[2024-04-11 20:22:21] Prénom: Anakin
-[2024-04-11 20:22:21] Email: evanzucchiatti@gmail.com
-[2024-04-11 20:22:21] Type:utilisateur
-[2024-04-11 20:24:40] Nouvel utilisateur inscrit.
-[2024-04-11 20:24:40] Nom: Skywalker
-[2024-04-11 20:24:40] Prénom: Anakin
-[2024-04-11 20:24:40] Email: evanzucchiatti@gmail.com
-[2024-04-11 20:24:40] Type:utilisateur
-[12-04-2024 15:36:10] Nouvel utilisateur inscrit.
-[12-04-2024 15:36:10] Nom: Test
-[12-04-2024 15:36:10] Prénom: Test
-[12-04-2024 15:36:10] Email: evanzucchiatti456@gmail.com
-[12-04-2024 15:36:10] Type: utilisateur
-[12-04-2024 17:08:39] Nouvel utilisateur inscrit.
-[12-04-2024 17:08:39] Nom: gfhj
-[12-04-2024 17:08:39] Prénom: fdsfghjh
-[12-04-2024 17:08:39] Email: fghh@gmail.com
-[12-04-2024 17:08:39] Type: utilisateur
-[15-04-2024 17:55:56] L'utilisateur a affecter un véhicule à une caserne.
-[15-04-2024 17:55:56] ID du véhicule: FPT
-[15-04-2024 17:55:56] Caserne: Lille
-[15-04-2024 17:55:56] Numéro du véhicule: 5
-[15-04-2024 18:01:04]  a affecté un véhicule à une caserne.
-[15-04-2024 18:01:04] ID du véhicule: FPT
-[15-04-2024 18:01:04] Caserne: Carcassonne
-[15-04-2024 18:01:04] Numéro du véhicule: 5
 [15-04-2024 18:02:29] EvanZucchiatti a affecté un véhicule à une caserne.
 [15-04-2024 18:02:29] ID du véhicule: FPT
 [15-04-2024 18:02:29] Caserne: Carcassonne
@@ -129,3 +57,8 @@
 [19-04-2024 16:57:03] Evan Zucchiatti a supprimé une caserne.
 [19-04-2024 16:57:03] L'ID de la caserne a été supprimé.: 5
 [19-04-2024 16:57:03] Nom de la caserne supprimé: Paris
+[19-04-2024 17:23:43] Nouvel utilisateur inscrit.
+[19-04-2024 17:23:43] Nom: Premier
+[19-04-2024 17:23:43] Prénom: Utilisateur
+[19-04-2024 17:23:43] Email: utilisateur@gmail.com
+[19-04-2024 17:23:43] Type: utilisateur

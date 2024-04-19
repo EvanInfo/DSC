@@ -42,7 +42,7 @@ CREATE TABLE `pompier` (
 
 LOCK TABLES `pompier` WRITE;
 /*!40000 ALTER TABLE `pompier` DISABLE KEYS */;
-INSERT INTO `pompier` VALUES (111111,'Zucchiatti','Evan','2000-02-25','0620063342','masculin',13),(123456,'SQZ','SZSZS','2022-10-08','2147483647','féminin',2),(456152,'Lennon','John','2005-01-19','0620063342','masculin',11),(459818,'Skywalker','Luke','1977-10-19','0458485144','masculin',12),(654352,'Clette','lara','1987-03-11','642786352','féminin',3),(782312,'Esur','janette','1982-02-11','627371273','féminin',3),(786572,'Abri','gauthier','1972-05-12','676542532','masculin',10),(789456,'Disney','Walt','2000-05-18','0620063342','masculin',3),(876543,'TEST','TEST','2022-10-18','872615253','masculin',2),(887769,'Etaitsur','syLVain','2022-09-30','676256352','masculin',11),(887799,'Inion','sébastien','2022-09-30','676256352','masculin',11),(898989,'Douard','JEAN','1986-09-15','676256352','masculin',9),(920372,'Lutin','Michel','2022-09-30','676256352','masculin',1),(920379,'Quenouille','Marc','2022-09-30','676256352','masculin',1),(982726,'Milou','Tintin','1970-10-10','99878998','masculin',10),(986995,'Dumontel','Robert','1969-10-10','298568542','masculin',11),(992312,'Balle','Jean','1982-07-12','678652354','masculin',2);
+INSERT INTO `pompier` VALUES (456152,'Lennon','John','2005-01-19','0620063342','masculin',11),(459818,'Skywalker','Luke','1977-10-19','0458485144','masculin',12),(654352,'Clette','lara','1987-03-11','642786352','féminin',3),(782312,'Esur','janette','1982-02-11','627371273','féminin',3),(786572,'Abri','gauthier','1972-05-12','676542532','masculin',10),(789456,'Disney','Walt','2000-05-18','0620063342','masculin',3),(887769,'Etaitsur','syLVain','2022-09-30','676256352','masculin',11),(887799,'Inion','sébastien','2022-09-30','676256352','masculin',11),(898989,'Douard','JEAN','1986-09-15','676256352','masculin',9),(920372,'Lutin','Michel','2022-09-30','676256352','masculin',1),(920379,'Quenouille','Marc','2022-09-30','676256352','masculin',1),(982726,'Milou','Tintin','1970-10-10','99878998','masculin',10),(986995,'Dumontel','Robert','1969-10-10','298568542','masculin',11),(992312,'Balle','Jean','1982-07-12','678652354','masculin',2);
 /*!40000 ALTER TABLE `pompier` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-19 17:08:29
+-- Dump completed on 2024-04-19 18:27:05

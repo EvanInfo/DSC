@@ -46,9 +46,9 @@ class EnginManager
     public function affectionId($vehiculeId, $caserneId, $numeroEngin)
     {
         $q = $this->_db->prepare('SELECT COUNT(*) FROM engin WHERE Type_Engin_id = :vehicule_id AND Caserne_id = :caserne_id AND Numéro = :numero_engin');
-        $q->bindValue(':vehicule_id', $vehiculeId);
-        $q->bindValue(':caserne_id', $caserneId);
-        $q->bindValue(':numero_engin', $numeroEngin);
+        $q->bindValue(':vehicule_id', $vehiculeId, PDO::PARAM_STR);
+        $q->bindValue(':caserne_id', $caserneId, PDO::PARAM_INT);
+        $q->bindValue(':numero_engin', $numeroEngin, PDO::PARAM_INT);
         $q->execute();
 
         $rowCount = $q->fetchColumn();

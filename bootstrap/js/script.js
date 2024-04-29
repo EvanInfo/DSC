@@ -361,7 +361,7 @@ function changerImage() {
 }
 document.getElementById('vehicule').addEventListener('change', changerImage);
 
-//Fonction pour récupérer les données pour la suppression des affectation de véhicule
+//Fonction pour récupérer les données pour la suppression des affectation des véhicules
 function selectionAffectation() {
     var selectedOption = document.getElementById('vehicule').options[document.getElementById('vehicule').selectedIndex];
     var selectedValue = selectedOption.value;

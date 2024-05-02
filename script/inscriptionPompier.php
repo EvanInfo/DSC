@@ -23,21 +23,32 @@
         $type_pompier = $_POST['type_pompier']; 
         $dateActuelle = date('Y-m-d');
         // Insertion des données dans la table Pompier
-        $pompier = new Pompier([
-            'Matricule' => $matricule, 
-            'DateNaiss' => $date_naissance, 
-            'Nom' => $nom, 
-            'Prenom' => $prenom, 
-            'Sexe' => $sexe, 
-            'id' => $grade, 
-            'Tel' => $telephone
-        ]);
-
-        $affectation = new Affectation([
-            'Date' => $dateActuelle,
-            'Matricule' => $matricule,
-            'id' => $caserne
-        ]);
+        
+        try {
+            $pompier = new Pompier([
+                'Matricule' => $matricule, 
+                'DateNaiss' => $date_naissance, 
+                'Nom' => $nom, 
+                'Prenom' => $prenom, 
+                'Sexe' => $sexe, 
+                'id' => $grade, 
+                'Tel' => $telephone
+            ]);
+        } catch (InvalidArgumentException $e) {
+            header('Location: ../pages/formulaire.php');
+            exit; // Assure que le script s'arrête après la redirection
+        }
+        
+        try {
+            $affectation = new Affectation([
+                'Date' => $dateActuelle,
+                'Matricule' => $matricule,
+                'id' => $caserne
+            ]);
+        } catch (InvalidArgumentException $e) {
+            header('Location: ../pages/formulaire.php');
+            exit; // Assure que le script s'arrête après la redirection
+        }
         
         // Si tout se passe bien, insérer dans la base de données
         $pompierManager->inserer($pompier);

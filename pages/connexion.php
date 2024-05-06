@@ -2,6 +2,8 @@
   include("../include/entete.inc.php");
   if (isset($_SESSION['login']) && $_SESSION['login'] == true ){
     header('Location: ../pages/accueil.php');}
+
+    // Page de connexion d'un utilisateur a l'application.
 ?>
 
 <div class="container custom-margin-top-3 ">

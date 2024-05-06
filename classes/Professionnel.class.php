@@ -1,5 +1,11 @@
 <?php
 class Professionnel
+/**
+ * Classe Pompier
+ * 
+ * Cette classe représente un professionnel.
+ * Elle permet de gérer les informations relatives au pompier professionnel.
+ */
 {
 	// Attributs
 	private $_Matricule;

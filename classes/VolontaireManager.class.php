@@ -1,5 +1,12 @@
 <?php
 class VolontaireManager
+
+/**
+ * Classe VolontaireManager
+ * 
+ * Il s'agit du manager de la classe volontairemanager.
+ * Elle permet de gérer les methodes relatives à la gestion des pompiers volontaires.
+ */
 {
     private $_db;
 

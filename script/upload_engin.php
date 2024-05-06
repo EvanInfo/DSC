@@ -1,6 +1,9 @@
 <?php
 require_once '../include/entete.inc.php';
 
+
+// Script permettant l'ajout'd'un véhicule depuis ajout_Vehicule.php
+
 // Vérification si le formulaire a été soumis via la méthode POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 

@@ -1,5 +1,11 @@
 <?php
 class EmployeurManager
+/**
+ * Classe EmployeurManager
+ * 
+ * Il s'agit du manager de la classe employeur.
+ * Elle permet de gérer les methodes relatives à la gestion d'un employeur.
+ */
 {
     private $_db;
 

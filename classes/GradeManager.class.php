@@ -1,5 +1,12 @@
 <?php
 class GradeManager
+
+/**
+ * Classe GradeManager
+ * 
+ * Il s'agit du manager de la classe grade.
+ * Elle permet de gérer les methodes relatives à la gestion des grades pour les pompiers.
+ */
 {
     private $_db;
 

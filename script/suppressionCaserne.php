@@ -1,6 +1,7 @@
 <?php
 require_once '../include/entete.inc.php';
 
+// Script permettant suppression d'une caserne depuis admin.php
 
 $journal = fopen('../log/Journal.log', 'a');
 

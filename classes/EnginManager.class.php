@@ -1,5 +1,11 @@
 <?php
 class EnginManager
+/**
+ * Classe EnginManager
+ * 
+ * Il s'agit du manager de la classe engin.
+ * Elle permet de gérer les methodes relatives à la gestion d'un engin.
+ */
 {
     private $_db;
 

@@ -4,6 +4,8 @@ require_once '../include/entete.inc.php';
 $journal = fopen('../log/Journal.log', 'a');
 
 
+// Script permettant la modification d'un véhicule depuis modification_Engin.php
+
 if ($journal) {
     
     $heure = date('d-m-Y H:i:s');

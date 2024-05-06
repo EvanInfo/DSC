@@ -2,6 +2,8 @@
 include("../include/entete.inc.php");
 if (isset($_SESSION['login']) && $_SESSION['login'] == false ){
     header('Location: ../pages/connexion.php');}
+
+    // Page permettant l'affichage des différents types de véhicule.
 ?>
 
 

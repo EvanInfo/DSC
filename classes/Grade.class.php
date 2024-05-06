@@ -1,5 +1,11 @@
 <?php
 class Grade
+/**
+ * Classe Grade
+ * 
+ * Cette classe représente un grade de pompier.
+ * Elle permet de gérer les informations relatives au grade pouvant être attribuer au pompier.
+ */
 {
 	// Attributs
 	private $_id;

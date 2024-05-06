@@ -1,5 +1,12 @@
 <?php
 class PompierManager
+
+/**
+ * Classe PompierManager
+ * 
+ * Il s'agit du manager de la classe pompier.
+ * Elle permet de gérer les methodes relatives à la gestion des pompiers.
+ */
 {
     private $_db;
 

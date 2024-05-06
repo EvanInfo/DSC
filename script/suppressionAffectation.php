@@ -1,6 +1,8 @@
 <?php
 require_once '../include/entete.inc.php';
 
+// Script permettant suppression d'une affection d'un véhicule depuis suppressionVéhiculeCaserne.php
+
 // Vérifier si la variable POST contient l'ID de l'objet à supprimer
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['numero'], $_POST['typeEnginId'], $_POST['caserneId']) && !empty($_POST['numero'] && !empty($_POST['typeEnginId']) && !empty($_POST['caserneId']))) {

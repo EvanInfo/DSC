@@ -1,5 +1,11 @@
 <?php
 class Employeur
+/**
+ * Classe Employeur
+ * 
+ * Cette classe représente un employeur.
+ * Elle permet de gérer les informations relatives à un employeur.
+ */
 {
 	// Attributs
 	private $_id;

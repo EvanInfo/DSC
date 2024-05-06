@@ -1,6 +1,8 @@
 <?php
 include("../include/entete.inc.php");
 
+// Script permettant la connexion et la récupération des informations de l'utilisateur issu du formulaire de la page connexion.php
+
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
   if ($utilisateur=$userManager->getUser($_POST['mail']))

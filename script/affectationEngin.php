@@ -1,6 +1,8 @@
 <?php
 require_once '../include/entete.inc.php';
 
+// Script permettant l'ajout d'un engin a une caserne issu du formulaire de la page ajoutVehiculeCaserne.php
+
 // Vérification si le formulaire a été soumis via la méthode POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['vehicule'], $_POST['Caserne'], $_POST['numeroEngin']) && !empty($_POST['vehicule'] && !empty($_POST['Caserne']) && !empty($_POST['numeroEngin']))) {

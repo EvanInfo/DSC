@@ -1,6 +1,8 @@
 <?php
   include("../include/entete.inc.php");
 
+  // Script permettant l'inscription d'un pompier depuis la page formulaire.php
+
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     try {

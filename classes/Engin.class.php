@@ -1,5 +1,12 @@
 <?php
 class Engin
+
+/**
+ * Classe Engin
+ * 
+ * Cette classe représente un engin.
+ * Elle permet de gérer les informations relatives d'un engin.
+ */
 {
 	// Attributs
 	private $_Numéro;

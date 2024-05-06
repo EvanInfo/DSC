@@ -1,5 +1,12 @@
 <?php
 class TypeEngin
+
+/**
+ * Classe TypeEngin
+ * 
+ * Cette classe représente un typeengin.
+ * Elle permet de gérer les informations relatives au différent typeengin.
+ */
 {
 	// Attributs
 	private $_id;

@@ -1,5 +1,12 @@
 <?php
 class Pompier
+
+/**
+ * Classe Pompier
+ * 
+ * Cette classe représente un pompier.
+ * Elle permet de gérer les informations relatives au pompier.
+ */
 {
     // Attributs
     private $_Matricule;

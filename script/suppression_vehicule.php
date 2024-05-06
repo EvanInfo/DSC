@@ -1,6 +1,7 @@
 <?php
 require_once '../include/entete.inc.php';
 
+// Script permettant suppression d'un véhicule depuis suppression_Engin.php
 
 $journal = fopen('../log/Journal.log', 'a');
 

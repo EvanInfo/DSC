@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Classe AffectationManager
+ * 
+ * Il s'agit du manager de la classe affectation.
+ * Elle permet de gérer les methodes relatives à la classe affectation.
+ */
 class AffectationManager
 {
     private $_db;

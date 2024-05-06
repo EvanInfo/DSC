@@ -8,6 +8,8 @@
   $erreurs = array(); // Initialiser un tableau pour stocker les erreurs
   if (isset($_SESSION['login']) && $_SESSION['login'] == false ){
     header('Location: ../pages/connexion.php');}
+    
+    // Page permettant l'inscription d'un pompier
 ?> 
 
 

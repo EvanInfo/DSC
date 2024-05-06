@@ -1,5 +1,12 @@
 <?php
 class UserManager
+
+/**
+ * Classe UserManager
+ * 
+ * Il s'agit du manager de la classe usermanager.
+ * Elle permet de gérer les methodes relatives à la gestion des utilisateurs de l'application.
+ */
 {
 	private $_db;
 

@@ -1,5 +1,12 @@
 <?php
 class TypeEnginManager
+
+/**
+ * Classe TypeEnginManager
+ * 
+ * Il s'agit du manager de la classe typeEngin.
+ * Elle permet de gérer les methodes relatives à la gestion des différents types d'engin.
+ */
 {
     private $_db;
 

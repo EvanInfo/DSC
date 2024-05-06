@@ -1,5 +1,6 @@
 <?php
 include("../include/entete.inc.php");
+// Script permettant l'inscription d'un utilisateur a l'application depuis la page inscription.php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     

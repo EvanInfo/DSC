@@ -1,5 +1,12 @@
 <?php
 class ProfessionnelManager
+
+/**
+ * Classe ProfessionnelManager
+ * 
+ * Il s'agit du manager de la classe professionnel.
+ * Elle permet de gérer les methodes relatives à la gestion des pompiers professionnel.
+ */
 {
     private $_db;
 

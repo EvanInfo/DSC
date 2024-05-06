@@ -1,5 +1,11 @@
 <?php
 class Caserne
+/**
+ * Classe Caserne
+ * 
+ * Cette classe représente une caserne.
+ * Elle permet de gérer les informations relatives à une caserne.
+ */
 {
 	// Attributs
 	private $_id;

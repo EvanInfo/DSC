@@ -1,6 +1,8 @@
 <?php
 require_once '../include/entete.inc.php';
 
+// Script permettant l'ajout d'une caserne issu du formulaire de la page admin.php
+
 // Vérification si le formulaire a été soumis via la méthode POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['id'], $_POST['nom']) && !empty($_POST['id'] && !empty($_POST['nom']))) {

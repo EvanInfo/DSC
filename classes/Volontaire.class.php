@@ -1,5 +1,12 @@
 <?php
 class Volontaire
+
+/**
+ * Classe Volontaire
+ * 
+ * Cette classe représente un volontaire.
+ * Elle permet de gérer les informations relatives au pompier volontaire.
+ */
 {
 	// Attributs
 	private $_Matricule;

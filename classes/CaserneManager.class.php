@@ -1,5 +1,13 @@
 <?php
 class CaserneManager
+
+/**
+ * Classe CaserneManager
+
+ * 
+ * Il s'agit du manager de la classe caserne.
+ * Elle permet de gérer les methodes relatives à la gestion de la caserne.
+ */
 {
     private $_db;
 

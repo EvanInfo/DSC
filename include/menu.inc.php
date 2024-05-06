@@ -35,6 +35,7 @@
                         <div>Pompier</div> 
                     </a>
                 </li>
+                <!--
                 <li class="nav-item text-center ml-3">
                     <a class="nav-link <?php if ($nomFichier==="agenda.php") { echo 'text-dark'; } else {echo 'text-white';}?>" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
@@ -44,6 +45,7 @@
                         <div>Agenda</div> 
                     </a>
                 </li>
+            -->
                 <li class="nav-item text-center ml-3">
                     <a class="nav-link <?php if ($nomFichier==="formulaire.php") { echo 'text-dark'; } else {echo 'text-white';}?>" data-toggle="" href="../pages/formulaire.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
